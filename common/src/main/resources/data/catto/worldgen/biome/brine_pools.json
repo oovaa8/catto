@@ -159,9 +159,9 @@
     "water_ambient": [
       {
         "type": "minecraft:tropical_fish",
-        "weight": 0,
-        "minCount": 0,
-        "maxCount": 0
+        "weight": 6,
+        "minCount": 3,
+        "maxCount": 10
       },
       {
         "type": "minecraft:cod",

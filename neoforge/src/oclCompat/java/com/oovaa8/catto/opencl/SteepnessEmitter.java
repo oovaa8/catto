@@ -45,7 +45,9 @@ public class SteepnessEmitter implements OpenCLCEmitter<SteepnessNode> {
             float[] prefixHash = buildPrefixHashBuffer(N);
             byte[] prefixBytes = floatsToBytes(prefixHash);
             INSTANCE.const_offset.put(context, context.allocGlobalConstData(prefixBytes, 4));
-            context.appendRaw("""
+            context.appendRaw(
+//GOD I HOPE THE HASH WORKS
+"""
 static double hash_steepness(int n){
     if (n==0) return 0.5;
     uint u = as_uint(n);

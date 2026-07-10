@@ -4,8 +4,12 @@ plugins {
     id 'com.gradleup.shadow' version "9.4.1"
 }
 
-configurations {
-    shadowFiles
+sourceSets {
+    oclCompat {
+        java {
+            srcDirs = ['src/oclCompat/java']
+        }
+    }
 }
 
 repositories {
@@ -23,12 +27,6 @@ repositories {
     }
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
-    }
-}
-
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.layered {
@@ -39,7 +37,19 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
     modCompileOnly "maven.modrinth:sodium:mc1.21.1-0.6.13-fabric"
+
     modCompileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+tasks.named('compileOclCompatJava', JavaCompile) {
+    javaCompiler = javaToolchains.compilerFor {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+    classpath += sourceSets.main.compileClasspath
+}
+
+jar {
+    from sourceSets.oclCompat.output
 }
 
 loom {

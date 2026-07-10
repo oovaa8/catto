@@ -4,6 +4,15 @@ plugins {
     id 'com.gradleup.shadow' version "9.4.1"
 }
 
+sourceSets {
+    oclCompat {
+        java {
+            srcDirs = ['src/oclCompat/java']
+        }
+    }
+}
+
+
 repositories {
     maven {
         name = "Modrinth"
@@ -11,12 +20,6 @@ repositories {
         content {
             includeGroup "maven.modrinth"
         }
-    }
-}
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
@@ -56,6 +59,17 @@ neoForge {
             sourceSet sourceSets.main
         }
     }
+}
+
+tasks.named('compileOclCompatJava', JavaCompile) {
+    javaCompiler = javaToolchains.compilerFor {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+    classpath += sourceSets.main.compileClasspath
+}
+
+jar {
+    from sourceSets.oclCompat.output
 }
 
 dependencies {

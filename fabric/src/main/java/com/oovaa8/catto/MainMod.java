@@ -82,7 +82,7 @@ public class MainMod implements ModInitializer {
             try {
                 Class.forName("com.oovaa8.catto.C2MECompat").getMethod("register").invoke(null);
                 Constants.LOG.info("Successfully initialized C2ME compat");
-            } catch (ReflectiveOperationException e) {
+            } catch (ReflectiveOperationException | LinkageError e) {
                 throw new RuntimeException("Failed to initialize OCL compat", e);
             }
         }else{

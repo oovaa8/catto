@@ -1,0 +1,133 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": {
+        "type": "minecraft:add",
+        "argument1": "catto:base/overworld",
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": "catto:biomes/break_up",
+          "argument2": 0.0045
+        }
+      },
+      "points": [
+        {
+          "location": 0.37755102040816335,
+          "derivative": 0,
+          "value": {
+            "coordinate": "catto:biomes/erosion_base",
+            "points": [
+              {
+                "location": -1,
+                "derivative": 0,
+                "value": -0.374
+              },
+              {
+                "location": 1,
+                "derivative": 0.3,
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "location": 0.4982993197278911,
+          "derivative": 0,
+          "value": {
+            "coordinate": "catto:biomes/erosion_base",
+            "points": [
+              {
+                "location": -1,
+                "derivative": 0,
+                "value": -0.78
+              },
+              {
+                "location": 1,
+                "derivative": 1,
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "location": 0.5994897959183674,
+          "derivative": 0,
+          "value": {
+            "coordinate": "catto:biomes/erosion_base",
+            "points": [
+              {
+                "location": -1,
+                "derivative": 0,
+                "value": -0.78
+              },
+              {
+                "location": 1,
+                "derivative": 1,
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "location": 0.5994897959183674,
+          "derivative": 0,
+          "value": {
+            "coordinate": "catto:biomes/erosion_base",
+            "points": [
+              {
+                "location": -1,
+                "derivative": 1,
+                "value": -1
+              },
+              {
+                "location": 1,
+                "derivative": 1,
+                "value": -0.223
+              }
+            ]
+          }
+        },
+        {
+          "location": 0.760204081632653,
+          "derivative": 0,
+          "value": {
+            "coordinate": "catto:biomes/erosion_base",
+            "points": [
+              {
+                "location": -1,
+                "derivative": 1,
+                "value": -1
+              },
+              {
+                "location": 1,
+                "derivative": 1,
+                "value": -0.223
+              }
+            ]
+          }
+        },
+        {
+          "location": 1.1,
+          "derivative": 0,
+          "value": {
+            "coordinate": "catto:biomes/erosion_base",
+            "points": [
+              {
+                "location": -1,
+                "derivative": 1,
+                "value": -1
+              },
+              {
+                "location": 1,
+                "derivative": 1,
+                "value": -0.781
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

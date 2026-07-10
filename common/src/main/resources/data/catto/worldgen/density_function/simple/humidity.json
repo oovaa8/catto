@@ -1,0 +1,66 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "catto:base/overworld",
+      "points": [
+        {
+          "location": 0.4625850340136055,
+          "derivative": 0,
+          "value": {
+            "coordinate": {
+              "type": "minecraft:add",
+              "argument1": "catto:biomes/humidity_base",
+              "argument2": {
+                "type": "minecraft:mul",
+                "argument1": "catto:biomes/break_up",
+                "argument2": 0.05
+              }
+            },
+            "points": [
+              {
+                "location": 0,
+                "derivative": 1,
+                "value": 0
+              }
+            ]
+          }
+        },
+        {
+          "location": 0.6113945578231292,
+          "derivative": 0,
+          "value": {
+            "coordinate": "catto:biomes/humidity_base",
+            "points": [
+              {
+                "location": 0,
+                "derivative": 1,
+                "value": 0
+              }
+            ]
+          }
+        },
+        {
+          "location": 1,
+          "derivative": 1,
+          "value": {
+            "coordinate": "catto:biomes/humidity_base",
+            "points": [
+              {
+                "location": -1,
+                "derivative": 0,
+                "value": -1
+              },
+              {
+                "location": 1,
+                "derivative": 0,
+                "value": -0.35
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

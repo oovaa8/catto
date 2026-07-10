@@ -20,6 +20,10 @@ repositories {
                 url = "https://api.modrinth.com/maven"
             }
         }
+
+        repositories {
+            maven { url = 'https://maven.minecraftforge.net/' }
+        }
         // forRepositories(fg.repository) // Uncomment when using ForgeGradle
         filter {
             includeGroup "maven.modrinth"
@@ -39,6 +43,9 @@ dependencies {
     modCompileOnly "maven.modrinth:sodium:mc1.21.1-0.6.13-fabric"
 
     modCompileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Some say it's the worst mod ever made
+    modCompileOnly "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-4.1.0.8"
 }
 
 tasks.named('compileOclCompatJava', JavaCompile) {

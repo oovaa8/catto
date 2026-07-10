@@ -64,7 +64,6 @@ public class MainMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
         if (Services.PLATFORM.isModLoaded("mr_blooming_biosphere")) {
             FabricLoader.getInstance().getModContainer(Constants.MOD_ID).ifPresent(modContainer -> {
                 ResourceManagerHelper.registerBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "bb_compat"), modContainer, ResourcePackActivationType.ALWAYS_ENABLED);
@@ -81,13 +80,14 @@ public class MainMod implements ModInitializer {
         if (Services.PLATFORM.isModLoaded("c2me-opts-accel-opencl")) {
             try {
                 Class.forName("com.oovaa8.catto.C2MECompat").getMethod("register").invoke(null);
-                Constants.LOG.info("Successfully initialized C2ME compat");
+                Constants.LOG.info("[CATTO]: Successfully initialized C2ME compat");
             } catch (ReflectiveOperationException | LinkageError e) {
-                throw new RuntimeException("Failed to initialize OCL compat", e);
+                throw new RuntimeException("[CATTO]: Failed to initialize OCL compat", e);
             }
         }else{
-            Constants.LOG.warn("c2me-ocl not loaded, expect slow worldgen");
+            Constants.LOG.warn("[CATTO]: c2me-ocl not loaded, expect slow worldgen");
         }
+
         Registry.register(BuiltInRegistries.DENSITY_FUNCTION_TYPE, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "erosion"), Erosion.CODEC.codec());
         Registry.register(BuiltInRegistries.DENSITY_FUNCTION_TYPE, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "steepness"), Steepness.CODEC.codec());
         Registry.register(BuiltInRegistries.DENSITY_FUNCTION_TYPE, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "cliffs"), Cliffs.CODEC.codec());

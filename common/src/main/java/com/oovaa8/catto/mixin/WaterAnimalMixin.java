@@ -9,6 +9,6 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class WaterAnimalMixin {
     @ModifyConstant(method = "checkSurfaceWaterAnimalSpawnRules", constant = @Constant(intValue = 13))
     private static int changeSpawnY(int constant){
-        return 304;
+        return 324;
     }
 }

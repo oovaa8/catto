@@ -18,29 +18,29 @@
   },
   "noise_router": {
     "barrier": 1,
-    "fluid_level_floodedness": "catto:surface/floodedness",
+    "fluid_level_floodedness": 0,
     "fluid_level_spread": 1,
     "lava": 0.8,
     "vein_toggle": 0,
     "vein_ridged": 0,
     "vein_gap": 1,
-    "temperature": "catto:biomes/temperature",
-    "vegetation": "catto:biomes/humidity",
-    "continents": "catto:biomes/continentalness",
-    "erosion": "catto:biomes/erosion",
+    "temperature": "catto:simple/temperature",
+    "vegetation": "catto:simple/humidity",
+    "continents": "catto:simple/continentalness",
+    "erosion": "catto:simple/erosion",
     "depth": 0,
-    "ridges": "catto:biomes/wierdness",
+    "ridges": "catto:simple/wierdness",
     "initial_density_without_jaggedness": {
       "type": "minecraft:interpolated",
       "argument": {
         "type": "minecraft:mul",
         "argument1": 80,
-        "argument2": "catto:surface/initial"
+        "argument2": "catto:simple/surface"
       }
     },
     "final_density": {
       "type": "minecraft:interpolated",
-      "argument": "catto:surface/initial"
+      "argument": "catto:simple/surface"
     }
   },
   "spawn_target": [

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:add",
+  "argument1": "catto:base/overworld",
+  "argument2": {
+    "type": "minecraft:y_clamped_gradient",
+    "from_y": -320,
+    "to_y": 2032,
+    "from_value": 1,
+    "to_value": -1
+  }
+}

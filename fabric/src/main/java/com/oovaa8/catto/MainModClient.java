@@ -28,7 +28,7 @@ public class MainModClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderType.translucent(), MainMod.TOXIC_BRINE, MainMod.FLOWING_TOXIC_BRINE);
 
-        BlockRenderLayerMap.INSTANCE.putBlock(CommonClass.TALL_MARSH_GRASS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MainMod.TALL_MARSH_GRASS, RenderType.cutout());
     }
 
 }

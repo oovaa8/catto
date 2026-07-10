@@ -1,7 +1,7 @@
 package com.oovaa8.catto.misc;
 
 import com.mojang.serialization.Codec;
-import com.oovaa8.catto.blocks.ActiveMagma;
+import com.oovaa8.catto.MainMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -44,7 +44,7 @@ public class VentFeature extends Feature<NoneFeatureConfiguration> {
                 this.setBlock(level, pos.offset(0, y, 0), Blocks.LAVA.defaultBlockState());
             }
             else if (y == h - 1) {
-                this.setBlock(level, pos.offset(0, y, 0), ActiveMagma.ACTIVE_MAGMA.defaultBlockState());
+                this.setBlock(level, pos.offset(0, y, 0), MainMod.ACTIVE_MAGMA.get().defaultBlockState());
             }
 
             double t = (double) (y) / (h); // 0 at bottom, 1 at top;

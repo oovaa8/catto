@@ -12,7 +12,6 @@
     "MonumentMixin\$MonumentPieceMixin",
     "OreFeatureSurfaceCheckMixin",
     "SnowYMixin",
-    "SurfaceRulesContextAccessor",
     "WaterAnimalMixin"
   ],
   "client": [],

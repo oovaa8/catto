@@ -11,17 +11,17 @@ import net.minecraft.world.level.material.FluidState;
 public abstract class ToxicBrineFluidNeoforge extends ToxicBrineFluid{
     @Override
     public Fluid getFlowing() {
-        return MainMod.FLOWING_TOXIC_BRINE;
+        return MainMod.FLOWING_TOXIC_BRINE.get();
     }
 
     @Override
     public Fluid getSource() {
-        return MainMod.TOXIC_BRINE;
+        return MainMod.TOXIC_BRINE.get();
     }
 
     @Override
     public Item getBucket() {
-        return MainMod.TOXIC_BRINE_BUCKET;
+        return MainMod.TOXIC_BRINE_BUCKET.get();
     }
 
     @Override
@@ -31,7 +31,7 @@ public abstract class ToxicBrineFluidNeoforge extends ToxicBrineFluid{
 
     @Override
     protected BlockState createLegacyBlock(FluidState state) {
-        return MainMod.TOXIC_BRINE_BLOCK.defaultBlockState().setValue(LiquidBlock.LEVEL, getLegacyLevel(state)); // Fuck you
+        return MainMod.TOXIC_BRINE_BLOCK.get().defaultBlockState().setValue(LiquidBlock.LEVEL, getLegacyLevel(state)); // Fuck you
     }
 
 

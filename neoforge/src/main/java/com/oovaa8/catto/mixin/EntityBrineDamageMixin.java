@@ -44,7 +44,7 @@ public abstract class EntityBrineDamageMixin {
     void brineDamage(CallbackInfo ci){
         BlockPos blockpos = BlockPos.containing(this.getX(), getY(), this.getZ());
         FluidState fluidstate = this.level.getFluidState(blockpos);
-        if(fluidstate.is(MainMod.TOXIC_BRINE)){
+        if(fluidstate.is(MainMod.TOXIC_BRINE.get())){
             this.hurt(this.damageSources().wither(),2.5F);
         }
     }

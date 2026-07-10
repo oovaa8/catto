@@ -70,17 +70,6 @@ public class Registration {
     }
 
     @SubscribeEvent
-    public static void registerFluids(RegisterEvent event) {
-        event.register(
-                BuiltInRegistries.FLUID.key(),
-                registry -> {
-                    registry.register(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "flowing_toxic_brine"), MainMod.FLOWING_TOXIC_BRINE);
-                    registry.register(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "toxic_brine"), MainMod.TOXIC_BRINE);
-                }
-        );
-    }
-
-    @SubscribeEvent
     public static void registerMaterialRules(RegisterEvent event) {
         event.register(
                 BuiltInRegistries.MATERIAL_RULE.key(),
@@ -89,6 +78,7 @@ public class Registration {
                 }
         );
     }
+
 
     @SubscribeEvent
     public static void addPackFinders(AddPackFindersEvent event) {
@@ -108,7 +98,7 @@ public class Registration {
 
             // In order for this pack to load and enable feature flags, this MUST be 'FEATURE',
             // any other PackSource type is invalid here
-            PackSource.BUILT_IN,
+            PackSource.FEATURE,
 
             // If this is true, the pack is always active and cannot be disabled, should always be false for feature packs
             false,

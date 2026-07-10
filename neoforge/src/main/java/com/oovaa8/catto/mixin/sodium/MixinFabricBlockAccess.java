@@ -14,6 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinFabricBlockAccess {
     @Inject(method = "shouldOccludeFluid", at = @At("RETURN"), cancellable = true)
     void brine(Direction adjDirection, BlockState adjBlockState, FluidState fluid, CallbackInfoReturnable<Boolean> cir){
-        cir.setReturnValue(adjBlockState.getFluidState().getType().isSame(MainMod.TOXIC_BRINE));
+        cir.setReturnValue(adjBlockState.getFluidState().getType().isSame(MainMod.TOXIC_BRINE.get()));
     }
 }

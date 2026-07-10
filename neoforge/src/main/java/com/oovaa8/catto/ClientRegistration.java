@@ -21,7 +21,7 @@ public class ClientRegistration {
                 (state, world, pos, tintIndex) -> world != null && pos != null
                         ? BiomeColors.getAverageGrassColor(world, pos)
                         : GrassColor.getDefaultColor(),
-                CommonClass.TALL_MARSH_GRASS
+                MainMod.TALL_MARSH_GRASS.get()
         );
     }
 

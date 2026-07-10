@@ -9,20 +9,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 
 public class ActiveMagma extends Block {
-    public static final ActiveMagma ACTIVE_MAGMA = new ActiveMagma(Properties.of()
-            .mapColor(MapColor.NETHER)
-            .instrument(NoteBlockInstrument.BASEDRUM)
-            .requiresCorrectToolForDrops()
-            .lightLevel(p_152684_ -> 8)
-            .strength(0.5F)
-            .isValidSpawn((p_187421_, p_187422_, p_187423_, p_187424_) -> p_187424_.fireImmune())
-            .hasPostProcess((x, y, z) -> true)
-            .emissiveRendering((x, y, z) -> true));
-
     public ActiveMagma(Properties properties) {
         super(properties);
     }

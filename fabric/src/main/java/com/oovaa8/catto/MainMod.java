@@ -2,6 +2,7 @@ package com.oovaa8.catto;
 
 import com.mojang.serialization.MapCodec;
 import com.oovaa8.catto.blocks.ActiveMagma;
+import com.oovaa8.catto.blocks.HalfWaterPlant;
 import com.oovaa8.catto.blocks.ToxicBrineBlock;
 import com.oovaa8.catto.blocks.ToxicBrineFluidFabric;
 import com.oovaa8.catto.density_functions.*;
@@ -60,6 +61,18 @@ public class MainMod implements ModInitializer {
                     .lightLevel(p_152684_ -> 3)
     );
 
+    public static final Block TALL_MARSH_GRASS = new HalfWaterPlant(
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .replaceable()
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .ignitedByLava()
+                    .pushReaction(PushReaction.DESTROY)
+    );
+
     public static final Item TOXIC_BRINE_BUCKET = new BucketItem(TOXIC_BRINE, new Item.Properties().craftRemainder(BUCKET).stacksTo(1));
 
     @Override
@@ -113,13 +126,13 @@ public class MainMod implements ModInitializer {
 
         EVERYWHERE_PLACEMENT = registerPlacement("everywhere", EverywherePlacementFabric.CODEC);
 
-        Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "tall_marsh_grass"), CommonClass.TALL_MARSH_GRASS);
+        Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "tall_marsh_grass"), MainMod.TALL_MARSH_GRASS);
 
         ColorProviderRegistry.BLOCK.register(
                 (state, world, pos, tintIndex) -> world != null && pos != null
                         ? BiomeColors.getAverageGrassColor(world, pos)
                         : GrassColor.getDefaultColor(),
-                CommonClass.TALL_MARSH_GRASS
+                MainMod.TALL_MARSH_GRASS
         );
     }
 

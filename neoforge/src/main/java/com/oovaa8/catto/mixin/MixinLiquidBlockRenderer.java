@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinLiquidBlockRenderer {
     @Inject(method = "isNeighborSameFluid", at = @At("HEAD"), cancellable = true)
     private static void brine(FluidState firstState, FluidState secondState, CallbackInfoReturnable<Boolean> cir){
-        cir.setReturnValue(secondState.getType().isSame(MainMod.TOXIC_BRINE));
+        cir.setReturnValue(secondState.getType().isSame(MainMod.TOXIC_BRINE.get()));
     }
 }

@@ -3,7 +3,6 @@ package com.oovaa8.catto.misc;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.oovaa8.catto.mixin.SurfaceRulesContextAccessor;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -33,7 +32,7 @@ public record HeightmapLayersRuleSource(List<Integer> offsets, List<BlockState> 
 
     public SurfaceRules.SurfaceRule apply(final SurfaceRules.Context context) {
         return (x, y, z) -> {
-            int surfaceY = ((SurfaceRulesContextAccessor)(Object)context).getMinSurfaceLevel() + 14; //We want to use preliminary here so cave entrances don't move it; + 14 to raise it back to real surface
+            int surfaceY = context.getMinSurfaceLevel() + 14; //We want to use preliminary here so cave entrances don't move it; + 14 to raise it back to real surface
             int depth = surfaceY - y;
 
             if (depth < 0) {

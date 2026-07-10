@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "catto:block/active_magma"
+    }
+  }
+}

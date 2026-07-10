@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+  "type": "minecraft:noise",
+  "noise": "minecraft:cave_layer",
+  "xz_scale": 1.25,
+  "y_scale": 0
+}
+}

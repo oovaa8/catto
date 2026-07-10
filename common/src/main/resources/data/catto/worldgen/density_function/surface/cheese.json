@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:interpolated",
+  "argument": {
+    "type": "minecraft:cache_once",
+    "argument":{
+  "type": "minecraft:add",
+  "argument1": {
+    "type": "minecraft:mul",
+    "argument1": 8,
+    "argument2": {
+      "type": "minecraft:quarter_negative",
+      "argument": {
+        "type": "minecraft:mul",
+        "argument1": "catto:surface/depth_smooth",
+        "argument2": 8
+      }
+    }
+  },
+  "argument2": "minecraft:overworld/base_3d_noise"
+}
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "feature": "catto:hydrothermal_vents/vent",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "weight": 1,
+            "data": 15
+          },
+          {
+            "weight": 10,
+            "data": 2
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 4
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

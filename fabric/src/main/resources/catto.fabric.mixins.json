@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.oovaa8.catto.mixin",
+  "refmap": "${mod_id}.refmap.json",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EntityBrineDamageMixin",
+    "LavaYMixin",
+    "ocl.MarkerRegisterMixin",
+    "ocl.MixinRegisterDfs"
+  ],
+  "client": [
+    "MixinLiquidBlockRenderer",
+    "sodium.MixinFabricBlockAccess"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

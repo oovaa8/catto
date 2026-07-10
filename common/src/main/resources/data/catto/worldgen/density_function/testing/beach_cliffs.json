@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "catto:height/erosion",
+  "min_inclusive": -0.6768707482993197,
+  "max_exclusive": -0.6683673469387755,
+  "when_in_range": {
+    "type": "minecraft:range_choice",
+    "input": "catto:height/steepness_params/flatness",
+    "min_inclusive": 0.01,
+    "max_exclusive": 1,
+    "when_in_range": "catto:height/steepness_params/steepness",
+    "when_out_of_range": 0
+  },
+  "when_out_of_range": 0
+}

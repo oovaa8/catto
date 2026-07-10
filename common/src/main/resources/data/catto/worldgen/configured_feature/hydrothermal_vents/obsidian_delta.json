@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:delta_feature",
+  "config": {
+    "contents": {
+      "Name": "minecraft:obsidian"
+    },
+    "rim": {
+      "Name": "minecraft:magma_block"
+    },
+    "size": {
+      "type": "minecraft:uniform",
+      "min_inclusive": 5,
+      "max_inclusive": 16
+    },
+    "rim_size": {
+      "type": "minecraft:weighted_list",
+      "distribution": [
+        {
+          "weight": 2,
+          "data": 0
+        },
+        {
+          "weight": 1,
+          "data": 1
+        }
+      ]
+    }
+  }
+}

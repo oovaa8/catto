@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:range_choice",
+  "input": {
+    "type": "catto:z"
+  },
+  "min_inclusive": 0,
+  "max_exclusive": 1000000,
+  "when_in_range": "catto:biomes/temperature_high_south",
+  "when_out_of_range": "catto:biomes/temperature_high_north"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:cache_once",
+  "argument": {
+    "type": "catto:cliffs_inverted",
+    "height": "catto:height/steepness",
+    "raw_height": "catto:height/erosion",
+    "cliffs": "catto:height/cliffs",
+    "length": "catto:height/steepness_params/length",
+    "flatness": "catto:height/steepness_params/flatness",
+    "steepness": "catto:height/steepness_params/steepness",
+    "noise": "catto:height/steepness_params/noise",
+    "sea_level": -0.6734693877551021,
+    "world_height": 2352,
+    "min_y": -320
+  }
+}

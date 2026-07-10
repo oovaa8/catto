@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "catto:base/hills_added",
+      "points": [
+        {
+          "location": -1,
+          "derivative": 0,
+          "value": -0.9404761904761905
+        },
+        {
+          "location": -0.6,
+          "derivative": 1,
+          "value": -0.6734693877551021
+        },
+        {
+          "location": 0.875,
+          "derivative": 0.75,
+          "value": 0.83
+        },
+        {
+          "location": 1.125,
+          "derivative": -0.75,
+          "value": 0.83
+        }
+      ]
+    }
+  }
+}

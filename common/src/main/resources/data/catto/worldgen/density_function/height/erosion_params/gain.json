@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "catto:base/overworld",
+      "points": [
+        {
+          "location": -0.238,
+          "derivative": 0,
+          "value": 0.5
+        },
+        {
+          "location": 0.0374,
+          "derivative": 0,
+          "value": 0.5
+        }
+      ]
+    }
+  }
+}

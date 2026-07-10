@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": {
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:shifted_noise",
+          "noise": "minecraft:temperature",
+          "xz_scale": 0.09,
+          "y_scale": 0,
+          "shift_x": -666,
+          "shift_y": 0,
+          "shift_z": 86411
+        },
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": {
+            "type": "minecraft:shifted_noise",
+            "noise": "minecraft:gravel",
+            "xz_scale": 0.06,
+            "y_scale": 0,
+            "shift_x": -4464,
+            "shift_y": 0,
+            "shift_z": 7788
+          },
+          "argument2": 0.3
+        }
+      },
+      "points": [
+        {
+          "location": -1,
+          "derivative": 1,
+          "value": -1
+        },
+        {
+          "location": -0.4,
+          "derivative": 1,
+          "value": -0.2
+        },
+        {
+          "location": 0,
+          "derivative": 0,
+          "value": 0
+        },
+        {
+          "location": 0.4,
+          "derivative": 1,
+          "value": 0.2
+        },
+        {
+          "location": 1,
+          "derivative": 1,
+          "value": 1
+        }
+      ]
+    }
+  }
+}

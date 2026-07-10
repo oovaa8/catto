@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "catto:surface/cheese",
+  "min_inclusive": -100000,
+  "max_exclusive": 1,
+  "when_in_range": {
+    "type": "minecraft:min",
+    "argument1": "catto:surface/initial",
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": 5,
+      "argument2": "catto:caves/new/entrances_high"
+    }
+  },
+  "when_out_of_range": {
+    "type": "minecraft:min",
+    "argument1": "catto:surface/initial",
+    "argument2": "catto:caves/mix"
+  }
+}

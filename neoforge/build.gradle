@@ -1,6 +1,23 @@
 plugins {
     id 'multiloader-loader'
     id 'net.neoforged.moddev'
+    id 'com.gradleup.shadow' version "9.4.1"
+}
+
+repositories {
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
 }
 
 neoForge {
@@ -40,5 +57,11 @@ neoForge {
         }
     }
 }
+
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly 'maven.modrinth:sodium:mc1.21.1-0.6.13-neoforge'
+}
+
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

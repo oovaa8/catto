@@ -1,0 +1,113 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:spline",
+      "spline": {
+        "coordinate": {
+          "type": "minecraft:add",
+          "argument1": "catto:height/steepness",
+          "argument2": {
+            "type": "minecraft:mul",
+            "argument1": "catto:biomes/break_up",
+            "argument2": 0.0045
+          }
+        },
+        "points": [
+          {
+            "location": 0.4625850340136055,
+            "derivative": 0,
+            "value": {
+              "coordinate": {
+                "type": "minecraft:add",
+                "argument1": "catto:biomes/temperature_base",
+                "argument2": {
+                  "type": "minecraft:mul",
+                  "argument1": "catto:biomes/break_up",
+                  "argument2": 0.035
+                }
+              },
+              "points": [
+                {
+                  "location": 0,
+                  "derivative": 1,
+                  "value": 0
+                }
+              ]
+            }
+          },
+          {
+            "location": 0.5994897959183674,
+            "derivative": 0,
+            "value": {
+              "coordinate": "catto:biomes/temperature_base",
+              "points": [
+                {
+                  "location": 0,
+                  "derivative": 1,
+                  "value": 0
+                }
+              ]
+            }
+          },
+          {
+            "location": 0.5994897959183674,
+            "derivative": 0,
+            "value": {
+              "coordinate": "catto:biomes/temperature_high",
+              "points": [
+                {
+                  "location": 0,
+                  "derivative": 1,
+                  "value": 0
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "argument2": {
+      "type": "minecraft:spline",
+      "spline": {
+        "coordinate": "catto:height/steepness",
+        "points": [
+          {
+            "location": -0.6734693877551021,
+            "derivative": 0,
+            "value": 0
+          },
+          {
+            "location": -0.6003401360544218,
+            "derivative": 0,
+            "value": {
+              "coordinate": {
+                "type": "minecraft:mul",
+                "argument1": 0.06,
+                "argument2": "catto:height/ridges"
+              },
+              "points": [
+                {
+                  "location": -1,
+                  "derivative": 0,
+                  "value": -1
+                },
+                {
+                  "location": 0,
+                  "derivative": 0,
+                  "value": 0
+                },
+                {
+                  "location": 1,
+                  "derivative": 0,
+                  "value": 0.35
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

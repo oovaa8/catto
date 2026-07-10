@@ -1,0 +1,56 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "catto:base/noise/oceans",
+    "points": [
+      {
+        "location": -0.75,
+        "derivative": 0.5,
+        "value": {
+          "coordinate": "catto:base/ocean",
+          "points": [
+            {
+              "location": -1,
+              "derivative": 0,
+              "value": -1
+            },
+            {
+              "location": 1,
+              "derivative": 0,
+              "value": -0.59
+            }
+          ]
+        }
+      },
+      {
+        "location": -0.3,
+        "derivative": 0.1,
+        "value": -0.65
+      },
+      {
+        "location": -0.1,
+        "derivative": 0,
+        "value": -0.6
+      },
+      {
+        "location": 0.6,
+        "derivative": 0.4,
+        "value": {
+          "coordinate": "catto:base/mountains",
+          "points": [
+            {
+              "location": -1,
+              "derivative": 1,
+              "value": -0.5
+            },
+            {
+              "location": 1,
+              "derivative": 0.7,
+              "value": 0.95
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

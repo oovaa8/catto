@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:delta_feature",
+  "config": {
+    "contents": {
+      "Name": "minecraft:water"
+    },
+    "rim": {
+      "Name": "minecraft:mud"
+    },
+    "rim_size": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 3,
+      "min_inclusive": 1
+    },
+    "size": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 11,
+      "min_inclusive": 3
+    }
+  }
+}

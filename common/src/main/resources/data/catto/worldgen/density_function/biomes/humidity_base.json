@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:shifted_noise",
+      "noise": "minecraft:gravel",
+      "xz_scale": 0.075,
+      "y_scale": 0,
+      "shift_x": 12477,
+      "shift_y": 0,
+      "shift_z": -56278
+    },
+    "argument2": 0.15
+  }
+}

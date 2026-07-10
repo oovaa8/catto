@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "catto:item/toxic_brine_bucket"
+  }
+}

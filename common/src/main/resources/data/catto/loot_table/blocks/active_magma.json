@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "catto:active_magma"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "catto:active_magma"
+}

@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "catto:height/slope_z",
+  "min_inclusive": -2,
+  "max_exclusive": -0.0000025,
+  "when_in_range": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "catto:biomes/temperature_base",
+      "points": [
+        {
+          "location": -1,
+          "derivative": 0,
+          "value": -1
+        },
+        {
+          "location": -0.45,
+          "derivative": 0,
+          "value": 0.21
+        },
+        {
+          "location": 0.55,
+          "derivative": 0,
+          "value": 0.54
+        },
+        {
+          "location": 1,
+          "derivative": 0,
+          "value": 1
+        }
+      ]
+    }
+  },
+  "when_out_of_range": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "catto:biomes/temperature_base",
+      "points": [
+        {
+          "location": -1,
+          "derivative": 0,
+          "value": -1
+        },
+        {
+          "location": 0.55,
+          "derivative": 0,
+          "value": 0.19
+        },
+        {
+          "location": 1,
+          "derivative": 0,
+          "value": 0.65
+        }
+      ]
+    }
+  }
+}

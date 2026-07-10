@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "catto:bush_steppe",
+    "catto:marsh",
+    "catto:wheat_steppe",
+    "catto:shrubland",
+    "catto:abyssal_plain",
+    "catto:hydrothermal_vents",
+    "catto:kelp_forest",
+    "catto:seagrass_meadow",
+    "catto:tropical_beach",
+    "catto:brine_pools"
+  ]
+}

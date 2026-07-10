@@ -1,0 +1,7 @@
+{
+    "type": "catto:cliffs",
+    "height": "catto:height/erosion",
+    "length": "catto:height/steepness_params/length",
+    "world_height": 2352,
+    "sea_level": -0.6734693877551021
+  }

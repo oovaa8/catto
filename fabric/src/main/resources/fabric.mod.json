@@ -8,15 +8,16 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://fabricmc.net/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.example.examplemod.ExampleMod"
+          "com.oovaa8.catto.MainMod"
+        ],
+        "client": [
+          "com.oovaa8.catto.MainModClient"
         ]
     },
     "mixins": [

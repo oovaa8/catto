@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "catto:steepness",
+    "height": "catto:height/erosion",
+    "length": "catto:height/steepness_params/length",
+    "flatness": "catto:height/steepness_params/flatness",
+    "steepness": "catto:height/steepness_params/steepness",
+    "noise": "catto:height/steepness_params/noise",
+    "world_height": 2352,
+    "sea_level": -0.6734693877551021
+  }
+}

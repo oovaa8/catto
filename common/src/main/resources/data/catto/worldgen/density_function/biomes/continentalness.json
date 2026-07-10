@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "catto:height/steepness",
+      "points": [
+        {
+          "location": -0.9642857142857143,
+          "derivative": 0,
+          "value": -1
+        },
+        {
+          "location": -0.6811224489795918,
+          "derivative": 0,
+          "value": -0.19
+        },
+        {
+          "location": -0.6709183673469388,
+          "derivative": 0,
+          "value": -0.109
+        },
+        {
+          "location": 0.12244897959183665,
+          "derivative": 0,
+          "value": 0.03
+        },
+        {
+          "location": 0.37755102040816335,
+          "derivative": 0,
+          "value": 0.29
+        },
+        {
+          "location": 0.4625850340136055,
+          "derivative": 0,
+          "value": 0.31
+        },
+        {
+          "location": 1,
+          "derivative": 0,
+          "value": 1
+        }
+      ]
+    }
+  }
+}

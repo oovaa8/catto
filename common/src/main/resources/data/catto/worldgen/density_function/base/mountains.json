@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "catto:base/land",
+    "points": [
+      {
+        "location": -0.2,
+        "derivative": 0,
+        "value": {
+          "coordinate": "catto:base/land",
+          "points": [
+            {
+              "location": 0,
+              "derivative": 1,
+              "value": 0
+            }
+          ]
+        }
+      },
+      {
+        "location": 0.1,
+        "derivative": 0.9,
+        "value": {
+          "coordinate": {
+            "type": "minecraft:shifted_noise",
+            "noise": "minecraft:cave_layer",
+            "xz_scale": 0.25,
+            "y_scale": 0,
+            "shift_x": 151858,
+            "shift_y": 0,
+            "shift_z": -378138
+          },
+          "points": [
+            {
+              "location": -1,
+              "derivative": 0,
+              "value": -0.2
+            },
+            {
+              "location": 0,
+              "derivative": 0.4,
+              "value": 0.1
+            },
+            {
+              "location": 1,
+              "derivative": 0,
+              "value": 0.4
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+}

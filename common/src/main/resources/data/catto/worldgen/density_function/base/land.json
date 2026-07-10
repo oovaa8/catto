@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "catto:base/noise/detail",
+    "points": [
+      {
+        "location": -1,
+        "derivative": 0,
+        "value": -1
+      },
+      {
+        "location": 0.3,
+        "derivative": 1,
+        "value": {
+          "coordinate": "catto:base/noise/mountains",
+          "points": [
+            {
+              "location": -1,
+              "derivative": 0,
+              "value": 0
+            },
+            {
+              "location": 1,
+              "derivative": 0.3,
+              "value": 1
+            }
+          ]
+        }
+      },
+      {
+        "location": 1.3,
+        "derivative": 0,
+        "value": -1
+      }
+    ]
+  }
+}

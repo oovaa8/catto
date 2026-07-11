@@ -198,14 +198,14 @@ public class Erosion
     public Erosion() {
     }
 
-    int lastX;
-    int lastZ;
+    int lastX = -9999;
+    int lastZ = -9999;
     ErosionResult lastResult;
 
     @Override
     public double compute(FunctionContext context) {
         ErosionResult result;
-        if(lastX == context.blockX() && lastZ == context.blockZ()){
+        if(lastX == context.blockX() && lastZ == context.blockZ() && lastResult != null){
             result = lastResult;
         }else {
             result = eval(context);

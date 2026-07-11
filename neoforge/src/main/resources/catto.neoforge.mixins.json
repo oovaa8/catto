@@ -3,11 +3,12 @@
   "minVersion": "0.8",
   "package": "com.oovaa8.catto.mixin",
   "compatibilityLevel": "JAVA_21",
+  "plugin": "com.oovaa8.catto.mixin.CompatMixinPlugin",
   "mixins": [
     "EntityBrineDamageMixin",
     "LavaYMixin",
-    "ocl.MarkerRegisterMixin",
-    "ocl.MixinRegisterDfs"
+    "ocl.oclMarkerRegisterMixin",
+    "ocl.oclMixinRegisterDfs"
   ],
   "client": [
     "MixinLiquidBlockRenderer",

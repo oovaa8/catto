@@ -8,10 +8,6 @@ import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class Erosion
         implements DensityFunction {
 
@@ -202,11 +198,21 @@ public class Erosion
     public Erosion() {
     }
 
+    int lastX;
+    int lastZ;
+    ErosionResult lastResult;
+
     @Override
     public double compute(FunctionContext context) {
-        long cacheKey = key(context.blockX(), context.blockZ());
-
-        ErosionResult result = cache.computeIfAbsent(cacheKey, k -> eval(context));
+        ErosionResult result;
+        if(lastX == context.blockX() && lastZ == context.blockZ()){
+            result = lastResult;
+        }else {
+            result = eval(context);
+            lastResult = result;
+            lastX = context.blockX();
+            lastZ = context.blockZ();
+        }
 
         return switch (mode) {
             case "height" -> result.height;
@@ -223,13 +229,6 @@ public class Erosion
     }
 
     static int logCount = 0;
-
-    public static Map<Long, ErosionResult> cache = Collections.synchronizedMap(new LinkedHashMap<Long, ErosionResult>(128, 0.75f, true) {
-        @Override
-        protected boolean removeEldestEntry(Map.Entry<Long, ErosionResult> eldest) {
-            return size() > 1024;
-        }
-    });
 
     ErosionResult eval(FunctionContext context){
         float initialHeight = (float)this.height.compute(context);

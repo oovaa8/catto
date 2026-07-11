@@ -55,7 +55,7 @@
           "location": 0.5994897959183674,
           "derivative": 0,
           "value": {
-            "coordinate": "catto:biomes/erosion_base",
+            "coordinate": "catto:biomes/erosion_base_low",
             "points": [
               {
                 "location": -1,

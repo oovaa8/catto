@@ -4,27 +4,37 @@
     "coordinate": {
       "type": "minecraft:shifted_noise",
       "noise": "minecraft:gravel",
-      "xz_scale": 0.01,
+      "xz_scale": 0.09,
       "y_scale": 0,
-      "shift_x": -541,
+      "shift_x": 1646,
       "shift_y": 0,
-      "shift_z": 222
+      "shift_z": -1394
     },
     "points": [
       {
         "location": -1,
         "derivative": 0,
+        "value": 0.2
+      },
+      {
+        "location": -0.5,
+        "derivative": 0,
+        "value": 0
+      },
+      {
+        "location": 0,
+        "derivative": 1,
         "value": -1
       },
       {
-        "location": 0.175,
-        "derivative": 2,
-        "value": -0.2
+        "location": 0.5,
+        "derivative": 0,
+        "value": 0
       },
       {
-        "location": 1.15,
+        "location": 1,
         "derivative": 0,
-        "value": 1
+        "value": 0.2
       }
     ]
   }

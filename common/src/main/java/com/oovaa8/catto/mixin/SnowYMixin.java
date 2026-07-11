@@ -17,7 +17,7 @@ public abstract class SnowYMixin {
     @Unique
     private static final float VANILLA_HEIGHT = 365.0F;
     @Unique
-    private static final float WORLD_HEIGHT = 2352.0F;
+    private static final float WORLD_HEIGHT = 18000F;//2352.0F; while 2352 would be accurate to vanilla I hate snow biomes so...
 
     @Unique
     private static final float HEIGHT_SCALE = VANILLA_HEIGHT / WORLD_HEIGHT;

@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
+import net.neoforged.neoforge.fluids.FluidType;
 
 public abstract class ToxicBrineFluidNeoforge extends ToxicBrineFluid{
     @Override
@@ -32,6 +33,11 @@ public abstract class ToxicBrineFluidNeoforge extends ToxicBrineFluid{
     @Override
     protected BlockState createLegacyBlock(FluidState state) {
         return MainMod.TOXIC_BRINE_BLOCK.get().defaultBlockState().setValue(LiquidBlock.LEVEL, getLegacyLevel(state)); // Fuck you
+    }
+
+    @Override
+    public FluidType getFluidType() {
+        return MainMod.TOXIC_BRINE_TYPE.get();
     }
 
 

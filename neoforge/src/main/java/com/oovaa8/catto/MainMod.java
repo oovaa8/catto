@@ -32,6 +32,20 @@ import static net.minecraft.world.item.Items.BUCKET;
 @Mod(Constants.MOD_ID)
 public class MainMod {
 
+    public static final DeferredRegister<FluidType> FLUID_TYPES =
+            DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, Constants.MOD_ID);
+
+    public static final DeferredHolder<FluidType, FluidType> TOXIC_BRINE_TYPE = FLUID_TYPES.register(
+            "toxic_brine",
+            () -> new FluidType(FluidType.Properties.create()
+                    .density(1200)
+                    .viscosity(1200)
+                    .temperature(300)
+                    .lightLevel(3)
+                    .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                    .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY).canPushEntity(true).canDrown(true).canConvertToSource(true).canSwim(true))
+    );
+
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Constants.MOD_ID);
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Constants.MOD_ID);
 
@@ -96,20 +110,6 @@ public class MainMod {
 
     public static final DeferredItem<BucketItem> TOXIC_BRINE_BUCKET = ITEMS.registerItem("toxic_brine_bucket",
             props -> new BucketItem(TOXIC_BRINE.get(), new Item.Properties().craftRemainder(BUCKET).stacksTo(1)));
-
-    public static final DeferredRegister<FluidType> FLUID_TYPES =
-            DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, Constants.MOD_ID);
-
-    public static final DeferredHolder<FluidType, FluidType> TOXIC_BRINE_TYPE = FLUID_TYPES.register(
-            "toxic_brine",
-            () -> new FluidType(FluidType.Properties.create()
-                    .density(1200)
-                    .viscosity(1200)
-                    .temperature(300)
-                    .lightLevel(3)
-                    .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
-                    .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY).canPushEntity(true).canDrown(true).canConvertToSource(true).canSwim(true))
-    );
 
 
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES =

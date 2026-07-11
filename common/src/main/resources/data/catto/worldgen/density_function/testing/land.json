@@ -1,0 +1,68 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "catto:height/erosion",
+    "points": [
+      {
+        "location": -0.6734693877551021,
+        "derivative": 0,
+        "value": -0.2
+      },
+      {
+        "location": -0.6734693877551021,
+        "derivative": 0,
+        "value": 0
+      },
+      {
+        "location": -0.30272108843537415,
+        "derivative": 0,
+        "value": 0
+      },
+      {
+        "location": -0.30272108843537415,
+        "derivative": 0,
+        "value": 0.2
+      },
+      {
+        "location": 0.12244897959183665,
+        "derivative": 0,
+        "value": 0.2
+      },
+      {
+        "location": 0.12244897959183665,
+        "derivative": 0,
+        "value": 0.4
+      },
+      {
+        "location": 0.5476190476190477,
+        "derivative": 0,
+        "value": 0.4
+      },
+      {
+        "location": 0.6326530612244898,
+        "derivative": 0,
+        "value": 0.6
+      },
+      {
+        "location": 0.8877551020408163,
+        "derivative": 0,
+        "value": 0.6
+      },
+      {
+        "location": 0.8877551020408163,
+        "derivative": 0,
+        "value": 0.8
+      },
+      {
+        "location": 1,
+        "derivative": 0,
+        "value": 1
+      },
+      {
+        "location": 1,
+        "derivative": 0,
+        "value": -1
+      }
+    ]
+  }
+}

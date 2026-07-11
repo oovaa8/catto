@@ -1,51 +1,30 @@
 {
   "type": "minecraft:spline",
   "spline": {
-    "coordinate": "catto:base/noise/detail",
+    "coordinate": {
+      "type": "minecraft:shifted_noise",
+      "noise": "minecraft:gravel",
+      "xz_scale": 0.09,
+      "y_scale": 0,
+      "shift_x": 1646,
+      "shift_y": 0,
+      "shift_z": -1394
+    },
     "points": [
       {
-        "location": -1,
+        "location": -0.7,
         "derivative": 0,
+        "value": 0
+      },
+      {
+        "location": 0,
+        "derivative": 1,
         "value": -1
       },
       {
-        "location": -0.6,
+        "location": 0.7,
         "derivative": 0,
-        "value": -0.6
-      },
-      {
-        "location": -0.2,
-        "derivative": 0,
-        "value": {
-          "coordinate": "catto:base/noise/ocean/mountains",
-          "points": [
-            {
-              "location": -1,
-              "derivative": 0,
-              "value": -0.6
-            },
-            {
-              "location": 0.8,
-              "derivative": 0,
-              "value": 1
-            },
-            {
-              "location": 1.2,
-              "derivative": -5,
-              "value": -0.2
-            }
-          ]
-        }
-      },
-      {
-        "location": 0.2,
-        "derivative": -1,
-        "value": -0.3
-      },
-      {
-        "location": 1,
-        "derivative": 0,
-        "value": -1
+        "value": 0
       }
     ]
   }

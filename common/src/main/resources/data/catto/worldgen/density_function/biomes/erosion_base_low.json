@@ -18,14 +18,14 @@
         }
       },
       {
-        "location": 0.5,
+        "location": 0.15,
         "derivative": 0,
         "value": {
           "coordinate": "catto:biomes/erosion_base",
           "points": [
             {
               "location": -1,
-              "derivative": 1,
+              "derivative": 0.5,
               "value": -1
             },
             {

@@ -4,12 +4,13 @@
   "package": "com.oovaa8.catto.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_21",
+  "plugin": "com.oovaa8.catto.mixin.CompatMixinPlugin",
   "mixins": [
     "EntityBrineDamageMixin",
     "LavaYMixin",
     "SurfaceRulesContextAccessor",
-    "ocl.MarkerRegisterMixin",
-    "ocl.MixinRegisterDfs"
+    "ocl.oclMarkerRegisterMixin",
+    "ocl.oclMixinRegisterDfs"
   ],
   "client": [
     "MixinLiquidBlockRenderer",

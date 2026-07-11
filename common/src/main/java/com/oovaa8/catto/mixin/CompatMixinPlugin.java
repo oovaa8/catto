@@ -22,10 +22,10 @@ public class CompatMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (mixinClassName.contains("ocl")) {
-            return Services.PLATFORM.isModLoaded("c2me-opts-accel-opencl");
+            return Services.PLATFORM.isModLoadedEarly("c2me-opts-accel-opencl") || Services.PLATFORM.isModLoadedEarly("c2me_opts_accel_opencl");
         }
         else if (mixinClassName.contains("sodium")) {
-            return Services.PLATFORM.isModLoaded("sodium");
+            return Services.PLATFORM.isModLoadedEarly("sodium");
         }
         return true;
     }

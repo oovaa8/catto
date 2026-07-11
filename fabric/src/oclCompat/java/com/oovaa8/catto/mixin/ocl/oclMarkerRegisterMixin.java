@@ -29,7 +29,7 @@ import static com.ishland.c2me.opts.accel.opencl.common.compiler.OpenCLCGen.MARK
 
 
 @Mixin(value = CLDataUtil.class, remap = false)
-public abstract class MarkerRegisterMixin {
+public abstract class oclMarkerRegisterMixin {
 
     @Inject(method = "worldgen_data_root$createForFlatCacheOnly", at =
     @At(value = "INVOKE", target = "Lcom/ishland/flowsched/util/Assertions;assertTrue(Z)V", ordinal = 0))

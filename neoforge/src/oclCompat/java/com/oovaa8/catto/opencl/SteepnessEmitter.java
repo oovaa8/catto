@@ -36,7 +36,7 @@ public class SteepnessEmitter implements OpenCLCEmitter<SteepnessNode> {
         return buf.array();
     }
 
-    private WeakHashMap<OpenCLCGenContext, Integer> const_offset = new WeakHashMap<>();
+    private final WeakHashMap<OpenCLCGenContext, Integer> const_offset = new WeakHashMap<>();
 
 
     public static void EmitHelpers(OpenCLCGenContext context){

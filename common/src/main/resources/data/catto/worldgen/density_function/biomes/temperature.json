@@ -55,7 +55,7 @@
             "location": 0.5994897959183674,
             "derivative": 0,
             "value": {
-              "coordinate": "catto:biomes/temperature_high",
+              "coordinate": "catto:biomes/temperature_high_north",
               "points": [
                 {
                   "location": 0,

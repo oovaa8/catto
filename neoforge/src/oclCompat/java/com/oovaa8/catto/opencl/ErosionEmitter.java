@@ -115,71 +115,8 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
     }
 
 
-    private static final String HELPER_FUNCTIONS = /*"""
-typedef struct erosion_result {
-    bool cached;
-    float4 res;
-} erosion_result_t;
-
-static inline bool cache_contains(
-        global const worldgen_params_t *params,
-        int x,
-        int z)
-{
-    return (uint32_t)(x - params->cache2d_startX) < (uint32_t)params->cache2d_sizeX &&
-           (uint32_t)(z - params->cache2d_startZ) < (uint32_t)params->cache2d_sizeZ;
-}
-
-static inline size_t cache_index(
-        global const worldgen_params_t *params,
-        int x,
-        int z)
-{
-    const size_t localX = (size_t)(x - params->cache2d_startX);
-    const size_t localZ = (size_t)(z - params->cache2d_startZ);
-
-    return localZ * (size_t)params->cache2d_sizeX + localX;
-}
-
-erosion_result_t df_cachelike_erosion(
-        global const worldgen_params_t *restrict params,
-        global const float4 *restrict data,
-        int32_t x,
-        int32_t z)
-{
-    if (!params)
-        return (erosion_result_t){false, nan((uint64_t)0)};
-
-    if (!cache_contains(params, x, z))
-        return (erosion_result_t){false, nan((uint64_t)0)};
-        
-    float4 result = data[cache_index(params, x, z)];
-    
-    if((result.x == 0.0 && result.y == 0.0)||result.x >= 1.0||result.x <= -1.0)
-        return (erosion_result_t){false, nan((uint64_t)0)};
-
-    return (erosion_result_t){
-        true,
-        result
-    };
-}
-
-void df_write_erosion(
-        global const worldgen_params_t *restrict params,
-        float4 value,
-        global float4 *restrict data,
-        int32_t x,
-        int32_t z)
-{
-    if (!params)
-        return;
-
-    if (!cache_contains(params, x, z))
-        return;
-
-    data[cache_index(params, x, z)] = value;
-}*/"""
-
+    private static final String HELPER_FUNCTIONS =
+"""
 #define TAU 6.28318530717959f
 
 static float2 hash_erosion(float2 x){

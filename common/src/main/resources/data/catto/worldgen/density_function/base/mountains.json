@@ -7,7 +7,7 @@
     "argument2": {
       "type": "minecraft:mul",
       "argument1": "catto:base/mountains_adv_2",
-      "argument2": 0.23
+      "argument2": 0.8
     }
   }
 }

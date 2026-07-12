@@ -18,34 +18,29 @@
           {
             "location": -1,
             "derivative": 0,
-            "value": -1
+            "value": -0.5
           },
           {
-            "location": -0.25,
-            "derivative": 4,
-            "value": 0.2
+            "location": -0.11,
+            "derivative": 1,
+            "value": 0.9
           },
           {
-            "location": 0,
-            "derivative": 0,
-            "value": 1
-          },
-          {
-            "location": 0.25,
-            "derivative": -4,
-            "value": 0.2
+            "location": 0.11,
+            "derivative": -1,
+            "value": 0.9
           },
           {
             "location": 1,
             "derivative": 0,
-            "value": -1
+            "value": -0.5
           }
         ]
       }
     },
     "argument2": {
       "type": "minecraft:mul",
-      "argument1": 0.5,
+      "argument1": 0.2,
       "argument2": {
         "type": "minecraft:noise",
         "noise": "minecraft:cave_layer",

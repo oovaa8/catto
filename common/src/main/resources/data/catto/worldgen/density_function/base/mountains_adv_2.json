@@ -4,7 +4,7 @@
     "coordinate": {
       "type": "minecraft:shifted_noise",
       "noise": "minecraft:gravel",
-      "xz_scale": 0.09,
+      "xz_scale": 0.08,
       "y_scale": 0,
       "shift_x": 1646,
       "shift_y": 0,
@@ -24,7 +24,7 @@
       {
         "location": 0,
         "derivative": 1,
-        "value": -1
+        "value": -0.35
       },
       {
         "location": 0.5,

@@ -21,6 +21,8 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+
+    maven { url "https://www.cursemaven.com" }
 }
 
 neoForge {
@@ -75,6 +77,8 @@ jar {
 dependencies {
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly 'maven.modrinth:sodium:mc1.21.1-0.6.13-neoforge'
+    //compileOnly "curse.maven:create-cosmonautics-1595491:8358740" Breaks compilation if enabled
+    compileOnly "maven.modrinth:mva5q4qZ:UcXaPVeD" // Create deep seas
 }
 
 

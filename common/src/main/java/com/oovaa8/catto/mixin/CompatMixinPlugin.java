@@ -26,6 +26,11 @@ public class CompatMixinPlugin implements IMixinConfigPlugin {
         }
         else if (mixinClassName.contains("sodium")) {
             return Services.PLATFORM.isModLoadedEarly("sodium");
+        }else if (mixinClassName.contains("cosmonautics")) {
+            return Services.PLATFORM.isModLoadedEarly("rocketnautics");
+        }
+        else if (mixinClassName.contains("deepsea")) {
+            return Services.PLATFORM.isModLoadedEarly("create_submarine");
         }
         return true;
     }

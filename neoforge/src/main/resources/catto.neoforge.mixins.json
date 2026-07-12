@@ -9,7 +9,6 @@
     "LavaYMixin",
     "cosmonautics.SkyHandlerMixin",
     "deepsea.HullStrengthConfigMixin",
-    "ocl.oclMarkerRegisterMixin",
     "ocl.oclMixinRegisterDfs"
   ],
   "client": [

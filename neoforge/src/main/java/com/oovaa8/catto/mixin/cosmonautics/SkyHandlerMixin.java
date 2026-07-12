@@ -12,6 +12,6 @@ public abstract class SkyHandlerMixin {
             constant = @Constant(doubleValue = 1000.0D)
     )
     private static double rocketnautics$modifyVisibilityStartHeight(double original) {
-        return 2100.0D;
+        return 1950.0D;
     }
 }

@@ -1,36 +1,12 @@
 package com.oovaa8.catto.mixin.ocl;
 
-import com.ishland.c2me.base.common.util.MemoryUtil;
-import com.ishland.c2me.opts.accel.opencl.common.compiler.GeneratedCLSource;
-import com.ishland.c2me.opts.accel.opencl.common.compiler.emitters.misc.CLBlockStateMappings;
 import com.ishland.c2me.opts.accel.opencl.common.gen.CLDataUtil;
-import com.ishland.c2me.opts.accel.opencl.common.gen.cache.Stage1Cache;
-import com.llamalad7.mixinextras.sugar.Local;
-import com.llamalad7.mixinextras.sugar.Share;
-import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
-import com.oovaa8.catto.opencl.ErosionEmitter;
-import net.minecraft.util.Mth;
-import net.minecraft.util.StaticCache2D;
-import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.StructureManager;
-import net.minecraft.world.level.chunk.ProtoChunk;
-import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
-import net.minecraft.world.level.levelgen.RandomState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.nio.ByteBuffer;
-
-import static com.ishland.c2me.opts.accel.opencl.common.compiler.OpenCLCGen.MARKER_localOffsetTable;
 
 
 @Mixin(value = CLDataUtil.class, remap = false)
 public abstract class oclMarkerRegisterMixin {
-
+/*
     @Inject(method = "worldgen_data_root$createForFlatCacheOnly", at =
     @At(value = "INVOKE", target = "Lcom/ishland/flowsched/util/Assertions;assertTrue(Z)V", ordinal = 0))
     private static void addKey(ChunkPos base, int chunkSize, GeneratedCLSource generatedCLSource, double[] flatCachePrefilled, boolean extendByOne, CallbackInfoReturnable<ByteBuffer> cir, @Local(name = "index") int index, @Local(name = "key") LocalRef<Object> key, @Local(name = "currentTail") LocalIntRef currentTail){
@@ -65,5 +41,5 @@ public abstract class oclMarkerRegisterMixin {
         int offset = oset.get();
         if(offset == -1) return 0;
         return offset;
-    }
+    }*/
 }

@@ -8,7 +8,7 @@ package com.oovaa8.catto.density_functions;
 
 // OpenCL translation of Rune's Erosion Filter, you can find the original here: https://www.shadertoy.com/view/sf23W1
 public class ErosionFilterOCL {
-    public static String EROSION = """
+    public static final String EROSION = """
 // Phacelle Noise function copyright (c) 2025 Rune Skovbo Johansen
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this

@@ -9,7 +9,6 @@
     "EntityBrineDamageMixin",
     "LavaYMixin",
     "SurfaceRulesContextAccessor",
-    "ocl.oclMarkerRegisterMixin",
     "ocl.oclMixinRegisterDfs"
   ],
   "client": [

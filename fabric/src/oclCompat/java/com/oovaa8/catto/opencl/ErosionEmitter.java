@@ -40,12 +40,12 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
         if(INSTANCE.helpersEmitted.add(context)){
             context.appendRaw(HELPER_FUNCTIONS);
             emitBase(context, hCall, strengthCall, scaleCall, ridgeRoundingCall, creaseRoundingCall, gainCall, node);
-            context.allocGlobalDynamicData(MARKER_cacheLike_erosion);
+            //context.allocGlobalDynamicData(MARKER_cacheLike_erosion);
         }
 
-        int offset = context.getGlobalDynamicDataOffset(MARKER_cacheLike_erosion);
+        //int offset = context.getGlobalDynamicDataOffset(MARKER_cacheLike_erosion);
 
-        return "if (ctx.rw_data){\n" +
+        /*return "if (ctx.rw_data){\n" +
                 "    global const worldgen_params_t * restrict params = ctx.rw_data;\n" +
                 "    global const float4 * restrict data = df_data_offset_global(ctx.rw_data, " + offset + ");\n" +
                 "    const erosion_result_t res = df_cachelike_erosion(params, data, ctx.x, ctx.z);\n" +
@@ -68,13 +68,13 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
                     case "slope_length" -> "base.z;\n";
                     case "slope_z" -> "base.w;\n";
                     default        -> "base.x;\n";
-        };/*
+        };*/
         return  "float4 base = erosion_base(ctx);\n" +
                 "return " + switch (node.mode) {
                     case "ridge"   -> "base.y;\n";
                     case "slope_x" -> "base.z;\n";
                     case "slope_z" -> "base.w;\n";
-                    default        -> "base.x;\n";};*/
+                    default        -> "base.x;\n";};
 
 
     }

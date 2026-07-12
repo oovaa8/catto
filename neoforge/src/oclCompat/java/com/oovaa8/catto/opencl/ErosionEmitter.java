@@ -19,7 +19,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
     private ErosionEmitter() {
     }
 
-    public static final Object MARKER_cacheLike_erosion = new Object();
+    //public static final Object MARKER_cacheLike_erosion = new Object();
 
     @Override
     public String doCLGen(ErosionNode node, OpenCLCGenContext context) {
@@ -40,12 +40,12 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
         if(INSTANCE.helpersEmitted.add(context)){
             context.appendRaw(HELPER_FUNCTIONS);
             emitBase(context, hCall, strengthCall, scaleCall, ridgeRoundingCall, creaseRoundingCall, gainCall, node);
-            context.allocGlobalDynamicData(MARKER_cacheLike_erosion);
+            //context.allocGlobalDynamicData(MARKER_cacheLike_erosion);
         }
 
-        int offset = context.getGlobalDynamicDataOffset(MARKER_cacheLike_erosion);
+        //int offset = context.getGlobalDynamicDataOffset(MARKER_cacheLike_erosion);
 
-        return "if (ctx.rw_data){\n" +
+        /*return "if (ctx.rw_data){\n" +
                 "    global const worldgen_params_t * restrict params = ctx.rw_data;\n" +
                 "    global const float4 * restrict data = df_data_offset_global(ctx.rw_data, " + offset + ");\n" +
                 "    const erosion_result_t res = df_cachelike_erosion(params, data, ctx.x, ctx.z);\n" +
@@ -68,13 +68,13 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
                     case "slope_length" -> "base.z;\n";
                     case "slope_z" -> "base.w;\n";
                     default        -> "base.x;\n";
-        };/*
+        };*/
         return  "float4 base = erosion_base(ctx);\n" +
                 "return " + switch (node.mode) {
                     case "ridge"   -> "base.y;\n";
                     case "slope_x" -> "base.z;\n";
                     case "slope_z" -> "base.w;\n";
-                    default        -> "base.x;\n";};*/
+                    default        -> "base.x;\n";};
 
 
     }
@@ -115,7 +115,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
     }
 
 
-    private static String HELPER_FUNCTIONS = """
+    private static final String HELPER_FUNCTIONS = /*"""
 typedef struct erosion_result {
     bool cached;
     float4 res;
@@ -155,7 +155,7 @@ erosion_result_t df_cachelike_erosion(
         
     float4 result = data[cache_index(params, x, z)];
     
-    if(result.x == 0.0 && result.y == 0.0)
+    if((result.x == 0.0 && result.y == 0.0)||result.x >= 1.0||result.x <= -1.0)
         return (erosion_result_t){false, nan((uint64_t)0)};
 
     return (erosion_result_t){
@@ -178,7 +178,7 @@ void df_write_erosion(
         return;
 
     data[cache_index(params, x, z)] = value;
-}
+}*/"""
 
 #define TAU 6.28318530717959f
 

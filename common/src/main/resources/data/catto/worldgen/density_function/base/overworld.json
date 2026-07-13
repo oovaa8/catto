@@ -1,34 +1,28 @@
 {
-  "type": "minecraft:interpolated",
-  "argument": {
-    "type": "minecraft:flat_cache",
-    "argument": {
-      "type": "minecraft:spline",
-      "spline": {
-        "coordinate": "catto:base/hills_added",
-        "points": [
-          {
-            "location": -1,
-            "derivative": 0,
-            "value": -0.9404761904761905
-          },
-          {
-            "location": -0.6,
-            "derivative": 1,
-            "value": -0.6734693877551021
-          },
-          {
-            "location": 1,
-            "derivative": 0.15,
-            "value": 0.87
-          },
-          {
-            "location": 2,
-            "derivative": 0,
-            "value": 0.87
-          }
-        ]
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "catto:base/hills_added",
+    "points": [
+      {
+        "location": -1,
+        "derivative": 0,
+        "value": -0.9404761904761905
+      },
+      {
+        "location": -0.6,
+        "derivative": 1,
+        "value": -0.6734693877551021
+      },
+      {
+        "location": 1,
+        "derivative": 0.15,
+        "value": 0.87
+      },
+      {
+        "location": 2,
+        "derivative": 0,
+        "value": 0.87
       }
-    }
+    ]
   }
 }

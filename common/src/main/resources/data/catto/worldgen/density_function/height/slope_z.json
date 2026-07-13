@@ -14,7 +14,7 @@
   "octaves": 4,
   "lacunarity": 2,
   "gain": 0.5,
-  "slope_scale": 1053,
+  "slope_scale": 1253,
   "output_scale": 1,
   "mode": "slope_z"
 }

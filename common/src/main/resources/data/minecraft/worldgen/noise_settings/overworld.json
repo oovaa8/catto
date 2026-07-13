@@ -107,7 +107,7 @@
     "vegetation": "catto:biomes/humidity",
     "continents": "catto:biomes/continentalness",
     "erosion": "catto:biomes/erosion",
-    "depth": 0,
+    "depth": "catto:surface/depth",
     "ridges": "catto:biomes/wierdness",
     "initial_density_without_jaggedness": {
       "type": "minecraft:mul",

@@ -54,6 +54,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
                             String ridgeRoundingCall, String creaseRoundingCall, String gainCall,
                             ErosionNode node) {
 
+        // fun fact this is extremely unsafe and WILL cause a crash if I flat/interpolate anything under this function
         String hCallDx = hCall.replace("ctx", "ctx_dx");
         String hCallDz = hCall.replace("ctx", "ctx_dz");
 

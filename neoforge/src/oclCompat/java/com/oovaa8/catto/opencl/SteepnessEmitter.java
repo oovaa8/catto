@@ -18,7 +18,7 @@ import static com.ishland.c2me.opts.accel.opencl.common.compiler.OpenCLCGen.lite
 public class SteepnessEmitter implements OpenCLCEmitter<SteepnessNode> {
     public static final SteepnessEmitter INSTANCE = new SteepnessEmitter();
 
-    private final Set<OpenCLCGenFunctionContext> helpersEmitted =
+    private final Set<OpenCLCGenContext> helpersEmitted =
             Collections.newSetFromMap(new WeakHashMap<>());
 
 
@@ -40,15 +40,15 @@ public class SteepnessEmitter implements OpenCLCEmitter<SteepnessNode> {
         return buf.array();
     }
 
-    private final WeakHashMap<OpenCLCGenFunctionContext, Integer> const_offset = new WeakHashMap<>();
+    private final WeakHashMap<OpenCLCGenContext, Integer> const_offset = new WeakHashMap<>();
 
 
-    public static void EmitHelpers(OpenCLCGenFunctionContext context){
+    public static void EmitHelpers(OpenCLCGenContext context){
         if(SteepnessEmitter.INSTANCE.helpersEmitted.add(context)){
             int N = 200;
             float[] prefixHash = buildPrefixHashBuffer(N);
             byte[] prefixBytes = floatsToBytes(prefixHash);
-            INSTANCE.const_offset.put(context, context.getGlobalContext().allocGlobalConstData(prefixBytes, 4));
+            INSTANCE.const_offset.put(context, context.allocGlobalConstData(prefixBytes, 4));
             context.appendRaw(
 //GOD I HOPE THE HASH WORKS
 """
@@ -97,7 +97,7 @@ static float steepness_smooth(float d, float r, float s, float hro){
     //just + on ints
     @Override
     public String doCLGen(SteepnessNode node, OpenCLCGenFunctionContext context, String s) {
-        EmitHelpers(context);
+        EmitHelpers(context.getGlobalContext());
         ValuesMethodDefF64 height = context.newVarF64(node.height);
         ValuesMethodDefF64 steepness = context.newVarF64(node.steepness);
         ValuesMethodDefF64 flatness = context.newVarF64(node.flatness);
@@ -114,8 +114,8 @@ static float steepness_smooth(float d, float r, float s, float hro){
                     """
                     int i = (int)(floor(hro/d));
                     if (i >= -199 && i <= 199){
-                        float gap = d * heightOffset(i, w);""" +
-                        "global const float * const prefix_hash = ptr_shift_global(ctx.const_data, " + const_offset.get(context) + ");\n" +
+                        float gap = d * heightOffset(i, w);\n""" +
+                        "global const float * const prefix_hash = ptr_shift_global(ctx.const_data, " + const_offset.get(context.getGlobalContext()) + ");\n" +
                         "float height = accumulatedHeight(i,d,w, prefix_hash, 200);\n" +
                         "float sm = steepness_smooth(d, r, s, hro);\n" +
                         s + " = h + f * (height + sm * gap - hro);\n" +

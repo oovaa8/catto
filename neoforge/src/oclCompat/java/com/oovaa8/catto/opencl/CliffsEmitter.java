@@ -19,7 +19,7 @@ public class CliffsEmitter implements OpenCLCEmitter<CliffsNode> {
     //just + on ints
     @Override
     public String doCLGen(CliffsNode node, OpenCLCGenFunctionContext context, String s) {
-        SteepnessEmitter.EmitHelpers(context);
+        SteepnessEmitter.EmitHelpers(context.getGlobalContext());
         ValuesMethodDefF64 height = context.newVarF64(node.height);
         ValuesMethodDefF64 length = context.newVarF64(node.length);
         return  "float h = (float)(" + context.getDelegateVar(height) + ");\n" +

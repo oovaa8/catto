@@ -40,8 +40,8 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
         String gainCall = "(float)(" + context.getDelegateVar(gain) + ")";
 
         if(INSTANCE.helpersEmitted.add(context)){
-            context.appendRaw(HELPER_FUNCTIONS);
-            emitBase(context, hCall, strengthCall, scaleCall, ridgeRoundingCall, creaseRoundingCall, gainCall, node);
+            context.getGlobalContext().appendRaw(HELPER_FUNCTIONS);
+            emitBase(context.getGlobalContext(), hCall, strengthCall, scaleCall, ridgeRoundingCall, creaseRoundingCall, gainCall, node);
         }
         return  "float4 base = erosion_base(ctx);\n" +
                 s + " = " + switch (node.mode) {
@@ -53,7 +53,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
 
     }
 
-    private void emitBase(OpenCLCGenFunctionContext context,
+    private void emitBase(OpenCLCGenContext context,
                             String hCall, String strengthCall, String scaleCall,
                             String ridgeRoundingCall, String creaseRoundingCall, String gainCall,
                             ErosionNode node) {
@@ -70,7 +70,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
                             "sample_int32_ctx_t ctx_dz = make_sample_int32_ctx(ctx.const_data, ctx.rw_data, ctx.x, ctx.y, ctx.z + 1, ctx.sample_flags);\n" +
                             "float hdz = " + hCallDz + ";\n" +
                             "float2 slope = (float2)(hdx - height, hdz - height);\n" +
-                            "float3 heightAndSlope = (float3)(height, slope * " + literal(node.slopeScale) + "f);\n" +
+                            "float3 heightAndSlope = (float3)(height, slope * " + literal(node.slopeScale) + ");\n" +
                             "float fadeTarget = clamp(height / 0.6, -1.0, 1.0);\n" +
                             "float ridgeMap = 0.0;\n" +
                             "float4 erosion = ErosionFilter(\n" +

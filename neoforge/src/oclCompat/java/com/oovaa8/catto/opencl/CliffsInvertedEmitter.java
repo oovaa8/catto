@@ -28,7 +28,7 @@ public class CliffsInvertedEmitter implements OpenCLCEmitter<CliffsInvertedNode>
     //just + on ints
     @Override
     public String doCLGen(CliffsInvertedNode node, OpenCLCGenFunctionContext context, String s) {
-        SteepnessEmitter.EmitHelpers(context);
+        SteepnessEmitter.EmitHelpers(context.getGlobalContext());
         ValuesMethodDefF64 height = context.newVarF64(node.height);
         ValuesMethodDefF64 cliffs = context.newVarF64(node.cliffs);
         ValuesMethodDefF64 raw_height = context.newVarF64(node.raw_height);
@@ -43,14 +43,14 @@ public class CliffsInvertedEmitter implements OpenCLCEmitter<CliffsInvertedNode>
                     "float f = (float)(" + context.getDelegateVar(flatness) + ");\n" +
                     "float c = (float)(" + context.getDelegateVar(cliffs) + ");\n" +
                     "float t = 0.15f * -s * min(f * 20.0f, 1.0f);\n" +
-                    "if(c>=0.0f || c<t) {\n" +
+                    "if(c>=0.0f && c<t) {\n" +
                         "float d = (float)(" + context.getDelegateVar(length) + ")/" + literal(node.worldHeight) + ";\n" +
                         "float hro = d / 2.0f - " + literal(node.ocean) + " + (float)(" + context.getDelegateVar(raw_height) + ");\n" +
                         "int i = (int)(floor(hro/d));\n" +
                         "float w = ((float)(" + context.getDelegateVar(noise) + ") + 1.0f) * 0.25f + 0.5f;\n" +
                         "float gap = heightOffset(i,w);\n" +
                         "float l = 2.0f*(h/(d*f*gap)) - 1.0f - 0.05f;\n" +
-                        "if(l>=-1 && l<=1) {\n" +
+                        "if(l>=-1.0 && l<=1.0) {\n" +
                             "c /= t;\n" +
                             s + " =  (c*c + l*l) >= 0.9f ? h : -h;\n" +
                         "} else {" + s + " = h;} \n" +

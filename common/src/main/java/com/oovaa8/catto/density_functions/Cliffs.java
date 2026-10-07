@@ -11,7 +11,7 @@ public record Cliffs(
         DensityFunction height,
         DensityFunction length,
         int worldHeight,
-        double ocean
+        float ocean
 
 ) implements DensityFunction {
     private static final MapCodec<Cliffs> DATA_CODEC = RecordCodecBuilder.mapCodec(
@@ -19,7 +19,7 @@ public record Cliffs(
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("height").forGetter(Cliffs::height),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("length").forGetter(Cliffs::length),
                             Codec.INT.fieldOf("world_height").forGetter(Cliffs::worldHeight),
-                            Codec.DOUBLE.fieldOf("sea_level").forGetter(Cliffs::ocean)
+                            Codec.FLOAT.fieldOf("sea_level").forGetter(Cliffs::ocean)
                     )
                     .apply(kind, Cliffs::new)
     );

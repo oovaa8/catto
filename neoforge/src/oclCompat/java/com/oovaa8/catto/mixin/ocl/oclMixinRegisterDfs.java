@@ -25,12 +25,12 @@ public class oclMixinRegisterDfs {
                     cir.setReturnValue(new ErosionNode(df, toAst(f.height), toAst(f.strength), toAst(f.scale), (float) f.detail, toAst(f.ridgeRounding), toAst(f.creaseRounding), (float) f.rounding_z, (float) f.rounding_w, (float) f.assumedSlope,  (float) f.assumedSlope_weight, (float) f.normalization,  f.octaves, (float) f.lacunarity, toAst(f.gain), (float) f.slopeScale, f.mode));
             case Steepness(
                     DensityFunction height, DensityFunction steepness, DensityFunction flatness, DensityFunction length,
-                    DensityFunction noise, int worldHeight, double ocean
+                    DensityFunction noise, int worldHeight, float ocean
             ) -> cir.setReturnValue(new SteepnessNode(df, toAst(height), toAst(steepness), toAst(flatness), toAst(length), toAst(noise), worldHeight, (float) ocean));
-            case Cliffs(DensityFunction height, DensityFunction length, int worldHeight, double ocean) -> cir.setReturnValue(new CliffsNode(df, toAst(height), toAst(length), worldHeight, (float) ocean));
+            case Cliffs(DensityFunction height, DensityFunction length, int worldHeight, float ocean) -> cir.setReturnValue(new CliffsNode(df, toAst(height), toAst(length), worldHeight, (float) ocean));
             case CliffsInverted(
                     DensityFunction height, DensityFunction cliffs, DensityFunction rawHeight, DensityFunction length,
-                    DensityFunction flatness, DensityFunction steepness, DensityFunction noise, double ocean,
+                    DensityFunction flatness, DensityFunction steepness, DensityFunction noise, float ocean,
                     int worldHeight, int minY
             ) -> cir.setReturnValue(new CliffsInvertedNode(df, toAst(height), toAst(cliffs), toAst(rawHeight), toAst(length), toAst(flatness), toAst(steepness), toAst(noise), worldHeight, (float) ocean, minY));
             case CoordinateX() -> cir.setReturnValue(new CoordinateNode(CoordinateNode.Axis.X));

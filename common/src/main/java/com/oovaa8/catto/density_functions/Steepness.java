@@ -14,7 +14,7 @@ public record Steepness(
         DensityFunction length,
         DensityFunction noise,
         int worldHeight,
-        double ocean
+        float ocean
 
 ) implements DensityFunction {
     private static final MapCodec<Steepness> DATA_CODEC = RecordCodecBuilder.mapCodec(
@@ -25,7 +25,7 @@ public record Steepness(
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("length").forGetter(Steepness::length),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("noise").forGetter(Steepness::noise),
                             Codec.INT.fieldOf("world_height").forGetter(Steepness::worldHeight),
-                            Codec.DOUBLE.fieldOf("sea_level").forGetter(Steepness::ocean)
+                            Codec.FLOAT.fieldOf("sea_level").forGetter(Steepness::ocean)
                     )
                     .apply(kind, Steepness::new)
     );

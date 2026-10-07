@@ -12,9 +12,9 @@ public class CliffsNode extends DelegateNode {
     public AstNode height;
     public AstNode length;
     public int worldHeight;
-    public double ocean;
+    public float ocean;
 
-    public CliffsNode(DensityFunction df, AstNode height, AstNode length, int worldHeight, double ocean) {
+    public CliffsNode(DensityFunction df, AstNode height, AstNode length, int worldHeight, float ocean) {
         super(df);
         this.df = df;
         this.height = height;
@@ -44,7 +44,7 @@ public class CliffsNode extends DelegateNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CliffsNode that = (CliffsNode) o;
-        return worldHeight == that.worldHeight && Double.compare(ocean, that.ocean) == 0
+        return worldHeight == that.worldHeight && Float.compare(ocean, that.ocean) == 0
                 && Objects.equals(height, that.height) && Objects.equals(length, that.length);
     }
 
@@ -57,7 +57,7 @@ public class CliffsNode extends DelegateNode {
         result = 31 * result + this.height.hashCode();
         result = 31 * result + this.length.hashCode();
         result = 31 * result + Integer.hashCode(this.worldHeight);
-        result = 31 * result + Double.hashCode(this.ocean);
+        result = 31 * result + Float.hashCode(this.ocean);
 
         return result;
     }
@@ -67,7 +67,7 @@ public class CliffsNode extends DelegateNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CliffsNode that = (CliffsNode) o;
-        return worldHeight == that.worldHeight && Double.compare(ocean, that.ocean) == 0
+        return worldHeight == that.worldHeight && Float.compare(ocean, that.ocean) == 0
                 && height.relaxedEquals(that.height) && length.relaxedEquals(that.length);
     }
 
@@ -79,7 +79,7 @@ public class CliffsNode extends DelegateNode {
         result = 31 * result + this.height.relaxedHashCode();
         result = 31 * result + this.length.relaxedHashCode();
         result = 31 * result + Integer.hashCode(this.worldHeight);
-        result = 31 * result + Double.hashCode(this.ocean);
+        result = 31 * result + Float.hashCode(this.ocean);
 
         return result;
     }

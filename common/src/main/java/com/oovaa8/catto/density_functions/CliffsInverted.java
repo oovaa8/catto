@@ -15,7 +15,7 @@ public record CliffsInverted(
         DensityFunction flatness,
         DensityFunction steepness,
         DensityFunction noise,
-        double ocean,
+        float ocean,
         int worldHeight,
         int min_y
 
@@ -29,7 +29,7 @@ public record CliffsInverted(
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("flatness").forGetter(CliffsInverted::length),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("steepness").forGetter(CliffsInverted::length),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("noise").forGetter(CliffsInverted::noise),
-                            Codec.DOUBLE.fieldOf("sea_level").forGetter(CliffsInverted::ocean),
+                            Codec.FLOAT.fieldOf("sea_level").forGetter(CliffsInverted::ocean),
                             Codec.INT.fieldOf("world_height").forGetter(CliffsInverted::worldHeight),
                             Codec.INT.fieldOf("min_y").forGetter(CliffsInverted::worldHeight)
                     )

@@ -195,24 +195,29 @@ public class Erosion
         mode = Mode;
     }
 
-    public Erosion() {
+public Erosion() {
+}
+
+    private static final class Cache {
+        int x = Integer.MIN_VALUE;
+        int z = Integer.MIN_VALUE;
+        ErosionResult result;
     }
 
-    int lastX = -9999;
-    int lastZ = -9999;
-    ErosionResult lastResult;
+    private final ThreadLocal<Cache> cache = ThreadLocal.withInitial(Cache::new);
 
     @Override
     public double compute(FunctionContext context) {
-        ErosionResult result;
-        if(lastX == context.blockX() && lastZ == context.blockZ() && lastResult != null){
-            result = lastResult;
-        }else {
-            result = eval(context);
-            lastResult = result;
-            lastX = context.blockX();
-            lastZ = context.blockZ();
+        int x = context.blockX();
+        int z = context.blockZ();
+
+        Cache c = cache.get();
+        if (c.result == null || c.x != x || c.z != z) {
+            c.result = eval(context);
+            c.x = x;
+            c.z = z;
         }
+        ErosionResult result = c.result;
 
         return switch (mode) {
             case "height" -> result.height;

@@ -1,5 +1,5 @@
-package com.oovaa8.catto.mixin.ocl;
-
+//package com.oovaa8.catto.mixin.ocl;
+/*
 import com.ishland.c2me.base.common.util.MemoryUtil;
 import com.ishland.c2me.opts.accel.opencl.common.compiler.GeneratedCLSource;
 import com.ishland.c2me.opts.accel.opencl.common.compiler.emitters.misc.CLBlockStateMappings;
@@ -9,7 +9,6 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
-import com.oovaa8.catto.opencl.ErosionEmitter;
 import net.minecraft.util.Mth;
 import net.minecraft.util.StaticCache2D;
 import net.minecraft.world.level.ChunkPos;
@@ -26,7 +25,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.nio.ByteBuffer;
 
 import static com.ishland.c2me.opts.accel.opencl.common.compiler.OpenCLCGen.MARKER_localOffsetTable;
-
 
 @Mixin(value = CLDataUtil.class, remap = false)
 public abstract class oclMarkerRegisterMixin {
@@ -66,4 +64,4 @@ public abstract class oclMarkerRegisterMixin {
         if(offset == -1) return 0;
         return offset;
     }
-}
+}*/

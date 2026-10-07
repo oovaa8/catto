@@ -12,21 +12,21 @@ public class ErosionNode extends DelegateNode {
     public AstNode height;
     public AstNode strength;
     public AstNode scale;
-    public double detail;
+    public float detail;
     public AstNode ridgeRounding;
     public AstNode creaseRounding;
-    public double rounding_z;
-    public double rounding_w;
-    public double assumedSlope;
-    public double assumedSlope_weight;
-    public double normalization;
+    public float rounding_z;
+    public float rounding_w;
+    public float assumedSlope;
+    public float assumedSlope_weight;
+    public float normalization;
     public int octaves;
-    public double lacunarity;
+    public float lacunarity;
     public AstNode gain;
-    public double slopeScale;
+    public float slopeScale;
     public String mode;
 
-    public ErosionNode(DensityFunction df, AstNode height, AstNode strength, AstNode scale, double detail, AstNode ridgeRounding, AstNode creaseRounding, double rounding_z, double rounding_w, double assumedSlope, double assumedSlope_weight, double normalization, int octaves, double lacunarity, AstNode gain, double slopeScale, String mode) {
+    public ErosionNode(DensityFunction df, AstNode height, AstNode strength, AstNode scale, float detail, AstNode ridgeRounding, AstNode creaseRounding, float rounding_z, float rounding_w, float assumedSlope, float assumedSlope_weight, float normalization, int octaves, float lacunarity, AstNode gain, float slopeScale, String mode) {
         super(df);
         this.df = df;
         this.height = Objects.requireNonNull(height);
@@ -72,11 +72,11 @@ public class ErosionNode extends DelegateNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ErosionNode that = (ErosionNode) o;
-        return Double.compare(detail, that.detail) == 0 && Double.compare(rounding_z, that.rounding_z) == 0
-                && Double.compare(rounding_w, that.rounding_w) == 0 && Double.compare(assumedSlope, that.assumedSlope) == 0
-                && Double.compare(assumedSlope_weight, that.assumedSlope_weight) == 0 && Double.compare(normalization, that.normalization) == 0
-                && octaves == that.octaves && Double.compare(lacunarity, that.lacunarity) == 0
-                && Double.compare(slopeScale, that.slopeScale) == 0 && Objects.equals(mode, that.mode)
+        return Float.compare(detail, that.detail) == 0 && Float.compare(rounding_z, that.rounding_z) == 0
+                && Float.compare(rounding_w, that.rounding_w) == 0 && Float.compare(assumedSlope, that.assumedSlope) == 0
+                && Float.compare(assumedSlope_weight, that.assumedSlope_weight) == 0 && Float.compare(normalization, that.normalization) == 0
+                && octaves == that.octaves && Float.compare(lacunarity, that.lacunarity) == 0
+                && Float.compare(slopeScale, that.slopeScale) == 0 && Objects.equals(mode, that.mode)
                 && Objects.equals(height, that.height) && Objects.equals(strength, that.strength) && Objects.equals(scale, that.scale)
                 && Objects.equals(ridgeRounding, that.ridgeRounding) && Objects.equals(creaseRounding, that.creaseRounding) && Objects.equals(gain, that.gain);
     }
@@ -90,18 +90,18 @@ public class ErosionNode extends DelegateNode {
         result = 31 * result + this.height.hashCode();
         result = 31 * result + this.strength.hashCode();
         result = 31 * result + this.scale.hashCode();
-        result = 31 * result + Double.hashCode(this.detail);
+        result = 31 * result + Float.hashCode(this.detail);
         result = 31 * result + this.ridgeRounding.hashCode();
         result = 31 * result + this.creaseRounding.hashCode();
-        result = 31 * result + Double.hashCode(this.rounding_z);
-        result = 31 * result + Double.hashCode(this.rounding_w);
-        result = 31 * result + Double.hashCode(this.assumedSlope);
-        result = 31 * result + Double.hashCode(this.assumedSlope_weight);
-        result = 31 * result + Double.hashCode(this.normalization);
+        result = 31 * result + Float.hashCode(this.rounding_z);
+        result = 31 * result + Float.hashCode(this.rounding_w);
+        result = 31 * result + Float.hashCode(this.assumedSlope);
+        result = 31 * result + Float.hashCode(this.assumedSlope_weight);
+        result = 31 * result + Float.hashCode(this.normalization);
         result = 31 * result + Integer.hashCode(this.octaves);
-        result = 31 * result + Double.hashCode(this.lacunarity);
+        result = 31 * result + Float.hashCode(this.lacunarity);
         result = 31 * result + this.gain.hashCode();
-        result = 31 * result + Double.hashCode(this.slopeScale);
+        result = 31 * result + Float.hashCode(this.slopeScale);
         result = 31 * result + this.mode.hashCode();
 
         return result;
@@ -112,11 +112,11 @@ public class ErosionNode extends DelegateNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ErosionNode that = (ErosionNode) o;
-        return Double.compare(detail, that.detail) == 0 && Double.compare(rounding_z, that.rounding_z) == 0
-                && Double.compare(rounding_w, that.rounding_w) == 0 && Double.compare(assumedSlope, that.assumedSlope) == 0
-                && Double.compare(assumedSlope_weight, that.assumedSlope_weight) == 0 && Double.compare(normalization, that.normalization) == 0
-                && octaves == that.octaves && Double.compare(lacunarity, that.lacunarity) == 0
-                && Double.compare(slopeScale, that.slopeScale) == 0 && Objects.equals(mode, that.mode)
+        return Float.compare(detail, that.detail) == 0 && Float.compare(rounding_z, that.rounding_z) == 0
+                && Float.compare(rounding_w, that.rounding_w) == 0 && Float.compare(assumedSlope, that.assumedSlope) == 0
+                && Float.compare(assumedSlope_weight, that.assumedSlope_weight) == 0 && Float.compare(normalization, that.normalization) == 0
+                && octaves == that.octaves && Float.compare(lacunarity, that.lacunarity) == 0
+                && Float.compare(slopeScale, that.slopeScale) == 0 && Objects.equals(mode, that.mode)
                 && height.relaxedEquals(that.height) && strength.relaxedEquals(that.strength) && scale.relaxedEquals(that.scale)
                 && ridgeRounding.relaxedEquals(that.ridgeRounding) && creaseRounding.relaxedEquals(that.creaseRounding) && gain.relaxedEquals(that.gain);
     }
@@ -129,18 +129,18 @@ public class ErosionNode extends DelegateNode {
         result = 31 * result + this.height.relaxedHashCode();
         result = 31 * result + this.strength.relaxedHashCode();
         result = 31 * result + this.scale.relaxedHashCode();
-        result = 31 * result + Double.hashCode(this.detail);
+        result = 31 * result + Float.hashCode(this.detail);
         result = 31 * result + this.ridgeRounding.relaxedHashCode();
         result = 31 * result + this.creaseRounding.relaxedHashCode();
-        result = 31 * result + Double.hashCode(this.rounding_z);
-        result = 31 * result + Double.hashCode(this.rounding_w);
-        result = 31 * result + Double.hashCode(this.assumedSlope);
-        result = 31 * result + Double.hashCode(this.assumedSlope_weight);
-        result = 31 * result + Double.hashCode(this.normalization);
+        result = 31 * result + Float.hashCode(this.rounding_z);
+        result = 31 * result + Float.hashCode(this.rounding_w);
+        result = 31 * result + Float.hashCode(this.assumedSlope);
+        result = 31 * result + Float.hashCode(this.assumedSlope_weight);
+        result = 31 * result + Float.hashCode(this.normalization);
         result = 31 * result + Integer.hashCode(this.octaves);
-        result = 31 * result + Double.hashCode(this.lacunarity);
+        result = 31 * result + Float.hashCode(this.lacunarity);
         result = 31 * result + this.gain.relaxedHashCode();
-        result = 31 * result + Double.hashCode(this.slopeScale);
+        result = 31 * result + Float.hashCode(this.slopeScale);
         result = 31 * result + this.mode.hashCode();
 
         return result;

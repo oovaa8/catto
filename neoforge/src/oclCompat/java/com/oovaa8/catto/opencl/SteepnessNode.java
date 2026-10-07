@@ -16,9 +16,9 @@ public class SteepnessNode extends DelegateNode {
     public AstNode length;
     public AstNode noise;
     public int worldHeight;
-    public double ocean;
+    public float ocean;
 
-    public SteepnessNode(DensityFunction df, AstNode height, AstNode steepness, AstNode flatness, AstNode length, AstNode noise, int worldHeight, double ocean) {
+    public SteepnessNode(DensityFunction df, AstNode height, AstNode steepness, AstNode flatness, AstNode length, AstNode noise, int worldHeight, float ocean) {
         super(df);
         this.df = df;
         this.height = height;
@@ -54,7 +54,7 @@ public class SteepnessNode extends DelegateNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SteepnessNode that = (SteepnessNode) o;
-        return worldHeight == that.worldHeight && Double.compare(ocean, that.ocean) == 0
+        return worldHeight == that.worldHeight && Float.compare(ocean, that.ocean) == 0
                 && Objects.equals(height, that.height) && Objects.equals(steepness, that.steepness) && Objects.equals(flatness, that.flatness)
                 && Objects.equals(length, that.length) && Objects.equals(noise, that.noise);
     }
@@ -71,7 +71,7 @@ public class SteepnessNode extends DelegateNode {
         result = 31 * result + this.length.hashCode();
         result = 31 * result + this.noise.hashCode();
         result = 31 * result + Integer.hashCode(this.worldHeight);
-        result = 31 * result + Double.hashCode(this.ocean);
+        result = 31 * result + Float.hashCode(this.ocean);
 
         return result;
     }
@@ -81,7 +81,7 @@ public class SteepnessNode extends DelegateNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SteepnessNode that = (SteepnessNode) o;
-        return worldHeight == that.worldHeight && Double.compare(ocean, that.ocean) == 0
+        return worldHeight == that.worldHeight && Float.compare(ocean, that.ocean) == 0
                 && height.relaxedEquals(that.height) && steepness.relaxedEquals(that.steepness) && flatness.relaxedEquals(that.flatness)
                 && length.relaxedEquals(that.length) && noise.relaxedEquals(that.noise);
     }
@@ -97,7 +97,7 @@ public class SteepnessNode extends DelegateNode {
         result = 31 * result + this.length.relaxedHashCode();
         result = 31 * result + this.noise.relaxedHashCode();
         result = 31 * result + Integer.hashCode(this.worldHeight);
-        result = 31 * result + Double.hashCode(this.ocean);
+        result = 31 * result + Float.hashCode(this.ocean);
 
         return result;
     }

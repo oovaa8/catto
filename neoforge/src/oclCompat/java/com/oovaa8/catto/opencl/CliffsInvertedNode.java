@@ -17,10 +17,10 @@ public class CliffsInvertedNode extends DelegateNode {
     public AstNode steepness;
     public AstNode noise;
     public int worldHeight;
-    public double ocean;
+    public float ocean;
     public int min_y;
 
-    public CliffsInvertedNode(DensityFunction df, AstNode height, AstNode cliffs, AstNode raw_height, AstNode length, AstNode flatness, AstNode steepness, AstNode noise, int worldHeight, double ocean, int min_y) {
+    public CliffsInvertedNode(DensityFunction df, AstNode height, AstNode cliffs, AstNode raw_height, AstNode length, AstNode flatness, AstNode steepness, AstNode noise, int worldHeight, float ocean, int min_y) {
         super(df);
         this.df = df;
         this.height = height;
@@ -61,7 +61,7 @@ public class CliffsInvertedNode extends DelegateNode {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CliffsInvertedNode that = (CliffsInvertedNode) o;
-        return worldHeight == that.worldHeight && Double.compare(ocean, that.ocean) == 0 && min_y == that.min_y && Objects.equals(height, that.height) && Objects.equals(cliffs, that.cliffs) && Objects.equals(raw_height, that.raw_height) && Objects.equals(length, that.length) && Objects.equals(flatness, that.flatness) && Objects.equals(steepness, that.steepness) && Objects.equals(noise, that.noise);
+        return worldHeight == that.worldHeight && Float.compare(ocean, that.ocean) == 0 && min_y == that.min_y && Objects.equals(height, that.height) && Objects.equals(cliffs, that.cliffs) && Objects.equals(raw_height, that.raw_height) && Objects.equals(length, that.length) && Objects.equals(flatness, that.flatness) && Objects.equals(steepness, that.steepness) && Objects.equals(noise, that.noise);
     }
 
     /*
@@ -73,7 +73,7 @@ public class CliffsInvertedNode extends DelegateNode {
     AstNode steepness;
     AstNode noise;
     int worldHeight;
-    double ocean;
+    float ocean;
     int min_y;*/
 
     @Override
@@ -89,8 +89,8 @@ public class CliffsInvertedNode extends DelegateNode {
         result = 31 * result + this.steepness.hashCode();
         result = 31 * result + this.noise.hashCode();
         result = 31 * result + Integer.hashCode(this.worldHeight);
-        result = 31 * result + Double.hashCode(this.ocean);
-        result = 31 * result + Double.hashCode(this.min_y);
+        result = 31 * result + Float.hashCode(this.ocean);
+        result = 31 * result + Integer.hashCode(this.min_y);
 
         return result;
     }
@@ -100,7 +100,7 @@ public class CliffsInvertedNode extends DelegateNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CliffsInvertedNode that = (CliffsInvertedNode) o;
-        return worldHeight == that.worldHeight && Double.compare(ocean, that.ocean) == 0 && min_y == that.min_y && height.relaxedEquals(that.height) && cliffs.relaxedEquals(that.cliffs) && raw_height.relaxedEquals(that.raw_height) && length.relaxedEquals(that.length) && flatness.relaxedEquals(that.flatness) && steepness.relaxedEquals(that.steepness) && noise.relaxedEquals(that.noise);
+        return worldHeight == that.worldHeight && Float.compare(ocean, that.ocean) == 0 && min_y == that.min_y && height.relaxedEquals(that.height) && cliffs.relaxedEquals(that.cliffs) && raw_height.relaxedEquals(that.raw_height) && length.relaxedEquals(that.length) && flatness.relaxedEquals(that.flatness) && steepness.relaxedEquals(that.steepness) && noise.relaxedEquals(that.noise);
     }
 
     @Override
@@ -116,8 +116,8 @@ public class CliffsInvertedNode extends DelegateNode {
         result = 31 * result + this.steepness.relaxedHashCode();
         result = 31 * result + this.noise.relaxedHashCode();
         result = 31 * result + Integer.hashCode(this.worldHeight);
-        result = 31 * result + Double.hashCode(this.ocean);
-        result = 31 * result + Double.hashCode(this.min_y);
+        result = 31 * result + Float.hashCode(this.ocean);
+        result = 31 * result + Integer.hashCode(this.min_y);
 
         return result;
     }

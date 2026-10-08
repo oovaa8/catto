@@ -38,13 +38,13 @@ public class CliffsInvertedEmitter implements OpenCLCEmitter<CliffsInvertedNode>
         ValuesMethodDefF64 noise = context.newVarF64(node.noise);
         return  "float height_map = (float)(" + context.getDelegateVar(height) + ");\n" +
                 "float h = height_map - (2.0f*(ctx.y - " + node.min_y + ") / " + literal(node.worldHeight) + " - 1.0f);\n" +
-                "float s = " + context.getDelegateVar(steepness) + ";\n"+
+                "float s = (float)(" + context.getDelegateVar(steepness) + ");\n"+
                 "if(s<0.0f) {\n" +
                     "float f = (float)(" + context.getDelegateVar(flatness) + ");\n" +
                     "float c = (float)(" + context.getDelegateVar(cliffs) + ");\n" +
                     "float t = 0.15f * -s * min(f * 20.0f, 1.0f);\n" +
                     "if(c>=0.0f && c<t) {\n" +
-                        "float d = (float)(" + context.getDelegateVar(length) + ")/" + literal(node.worldHeight) + ";\n" +
+                        "float d = (float)(" + context.getDelegateVar(length) + ")/" + node.worldHeight + ";\n" +
                         "float hro = d / 2.0f - " + literal(node.ocean) + " + (float)(" + context.getDelegateVar(raw_height) + ");\n" +
                         "int i = (int)(floor(hro/d));\n" +
                         "float w = ((float)(" + context.getDelegateVar(noise) + ") + 1.0f) * 0.25f + 0.5f;\n" +

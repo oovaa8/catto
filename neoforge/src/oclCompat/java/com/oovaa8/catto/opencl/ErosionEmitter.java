@@ -5,6 +5,7 @@ import com.ishland.c2me.opts.dfc.common.gen.meta.ValuesMethodDefF64;
 import com.ishland.c2me.opts.dfc.common.gen.opencl.OpenCLCEmitter;
 import com.ishland.c2me.opts.dfc.common.gen.opencl.OpenCLCGenContext;
 import com.ishland.c2me.opts.dfc.common.gen.opencl.OpenCLCGenFunctionContext;
+import com.oovaa8.catto.Constants;
 import com.oovaa8.catto.density_functions.ErosionFilterOCL;
 
 import java.util.Collections;
@@ -17,7 +18,7 @@ import static com.ishland.c2me.opts.accel.opencl.common.compiler.OpenCLCGen.lite
 public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
     public static final ErosionEmitter INSTANCE = new ErosionEmitter();
 
-    private final Set<OpenCLCGenFunctionContext> helpersEmitted =
+    private final Set<OpenCLCGenContext> helpersEmitted =
             Collections.newSetFromMap(new WeakHashMap<>());
 
     private ErosionEmitter() {
@@ -25,21 +26,20 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
 
     @Override
     public String doCLGen(ErosionNode node, OpenCLCGenFunctionContext context, String s) {
-        ValuesMethodDefF64 height = context.newVarF64(node.height);
-        ValuesMethodDefF64 strength = context.newVarF64(node.strength);
-        ValuesMethodDefF64 scale = context.newVarF64(node.scale);
-        ValuesMethodDefF64 ridgeRounding = context.newVarF64(node.ridgeRounding);
-        ValuesMethodDefF64 creaseRounding = context.newVarF64(node.creaseRounding);
-        ValuesMethodDefF64 gain = context.newVarF64(node.gain);
+        if(INSTANCE.helpersEmitted.add(context.getGlobalContext())){
+            ValuesMethodDefF64 height = context.getGlobalContext().newDispatcherF64(node.height);
+            ValuesMethodDefF64 strength = context.getGlobalContext().newDispatcherF64(node.strength);
+            ValuesMethodDefF64 scale = context.getGlobalContext().newDispatcherF64(node.scale);
+            ValuesMethodDefF64 ridgeRounding = context.getGlobalContext().newDispatcherF64(node.ridgeRounding);
+            ValuesMethodDefF64 creaseRounding = context.getGlobalContext().newDispatcherF64(node.creaseRounding);
+            ValuesMethodDefF64 gain = context.getGlobalContext().newDispatcherF64(node.gain);
 
-        String hCall = "(float)(" + context.getDelegateVar(height) + ")";
-        String strengthCall = "(float)(" + context.getDelegateVar(strength) + ")";
-        String scaleCall = "(float)(" + context.getDelegateVar(scale) + ")";
-        String ridgeRoundingCall = "(float)(" + context.getDelegateVar(ridgeRounding) + ")";
-        String creaseRoundingCall = "(float)(" + context.getDelegateVar(creaseRounding) + ")";
-        String gainCall = "(float)(" + context.getDelegateVar(gain) + ")";
-
-        if(INSTANCE.helpersEmitted.add(context)){
+            String hCall = "(float)(" + context.getGlobalContext().callDelegate(height) + ")";
+            String strengthCall = "(float)(" + context.getGlobalContext().callDelegate(strength) + ")";
+            String scaleCall = "(float)(" + context.getGlobalContext().callDelegate(scale) + ")";
+            String ridgeRoundingCall = "(float)(" + context.getGlobalContext().callDelegate(ridgeRounding) + ")";
+            String creaseRoundingCall = "(float)(" + context.getGlobalContext().callDelegate(creaseRounding) + ")";
+            String gainCall = "(float)(" + context.getGlobalContext().callDelegate(gain) + ")";
             context.getGlobalContext().appendRaw(HELPER_FUNCTIONS);
             emitBase(context.getGlobalContext(), hCall, strengthCall, scaleCall, ridgeRoundingCall, creaseRoundingCall, gainCall, node);
         }

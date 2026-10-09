@@ -8,8 +8,7 @@
     "EntityBrineDamageMixin",
     "LavaYMixin",
     "cosmonautics.SkyHandlerMixin",
-    "deepsea.HullStrengthConfigMixin",
-    "ocl.oclMixinRegisterDfs"
+    "deepsea.HullStrengthConfigMixin"
   ],
   "client": [
     "MixinLiquidBlockRenderer",

@@ -4,6 +4,7 @@ import com.ishland.c2me.opts.accel.opencl.common.gen.CLDataUtil;
 import org.spongepowered.asm.mixin.Mixin;
 
 
+/*
 @Mixin(value = CLDataUtil.class, remap = false)
 public abstract class oclMarkerRegisterMixin {
 /*
@@ -41,5 +42,5 @@ public abstract class oclMarkerRegisterMixin {
         int offset = oset.get();
         if(offset == -1) return 0;
         return offset;
-    }*/
-}
+    }
+}*/

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static com.ishland.c2me.opts.dfc.common.ast.McToAst.toAst;
-
+/* THEY FIXED IT!!!!!!!!!!!!!!!!!!!!!!!!!
 @Mixin(McToAst.class)
 public class oclMixinRegisterDfs {
     @Inject(method = "toAst", at = @At("HEAD"), cancellable = true)
@@ -40,3 +40,4 @@ public class oclMixinRegisterDfs {
         }
     }
 }
+*/

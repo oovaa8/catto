@@ -33,7 +33,7 @@ public final class C2MECompat {
         McToAst.REGISTRY.registerExactMatch(Erosion.class, f -> new ErosionNode(f, toAst(f.height), toAst(f.strength), toAst(f.scale), f.detail, toAst(f.ridgeRounding), toAst(f.creaseRounding), f.rounding_z, f.rounding_w, f.assumedSlope, f.assumedSlope_weight, f.normalization, f.octaves, f.lacunarity, toAst(f.gain), f.slopeScale, f.mode));
         McToAst.REGISTRY.registerExactMatch(Steepness.class, f -> new SteepnessNode(f, toAst(f.height()), toAst(f.steepness()), toAst(f.flatness()), toAst(f.length()), toAst(f.noise()), f.worldHeight(), f.ocean()));
         McToAst.REGISTRY.registerExactMatch(Cliffs.class, f -> new CliffsNode(f, toAst(f.height()), toAst(f.length()), f.worldHeight(), f.ocean()));
-        McToAst.REGISTRY.registerExactMatch(CliffsInverted.class, f -> new CliffsInvertedNode(f, toAst(f.height()),toAst(f.cliffs()),toAst(f.raw_height()), toAst(f.steepness()), toAst(f.flatness()), toAst(f.length()), toAst(f.noise()), f.worldHeight(), f.ocean(), f.min_y()));
+        McToAst.REGISTRY.registerExactMatch(CliffsInverted.class, f -> new CliffsInvertedNode(f, toAst(f.height()),toAst(f.cliffs()),toAst(f.raw_height()), toAst(f.length()), toAst(f.flatness()), toAst(f.steepness()), toAst(f.noise()), f.worldHeight(), f.ocean(), f.min_y()));
 
         DotGenRegistry.REGISTRY.registerExactMatch(
                 ErosionNode.class,

@@ -23,8 +23,8 @@ public record CliffsInverted(
     private static final MapCodec<CliffsInverted> DATA_CODEC = RecordCodecBuilder.mapCodec(
             kind -> kind.group( //16 argument limit TwT
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("height").forGetter(CliffsInverted::height),
-                            DensityFunction.HOLDER_HELPER_CODEC.fieldOf("raw_height").forGetter(CliffsInverted::raw_height),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("cliffs").forGetter(CliffsInverted::cliffs),
+                            DensityFunction.HOLDER_HELPER_CODEC.fieldOf("raw_height").forGetter(CliffsInverted::raw_height),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("length").forGetter(CliffsInverted::length),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("flatness").forGetter(CliffsInverted::length),
                             DensityFunction.HOLDER_HELPER_CODEC.fieldOf("steepness").forGetter(CliffsInverted::length),
@@ -72,7 +72,7 @@ public record CliffsInverted(
 
     @Override
     public DensityFunction mapAll(Visitor visitor) {
-        return new CliffsInverted(this.height.mapAll(visitor), this.raw_height.mapAll(visitor), this.cliffs.mapAll(visitor), this.length.mapAll(visitor), this.flatness.mapAll(visitor), this.steepness.mapAll(visitor), this.noise.mapAll(visitor), this.ocean, this.worldHeight, this.min_y);
+        return new CliffsInverted(this.height.mapAll(visitor), this.cliffs.mapAll(visitor), this.raw_height.mapAll(visitor), this.length.mapAll(visitor), this.flatness.mapAll(visitor), this.steepness.mapAll(visitor), this.noise.mapAll(visitor), this.ocean, this.worldHeight, this.min_y);
     }
 
     @Override

@@ -1,6 +1,4 @@
 {
-  "type": "minecraft:cache_once",
-  "argument": {
     "type": "catto:cliffs_inverted",
     "height": "catto:height/steepness",
     "raw_height": "catto:height/erosion",
@@ -12,5 +10,4 @@
     "sea_level": -0.6734693877551021,
     "world_height": 2352,
     "min_y": -320
-  }
 }

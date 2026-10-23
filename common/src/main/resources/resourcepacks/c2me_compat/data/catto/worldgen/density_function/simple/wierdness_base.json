@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "catto:base/overworld",
+    "points": [
+      {
+        "location": -1,
+        "derivative": 0,
+        "value": 0.2666
+      },
+      {
+        "location": -0.6819727891156462,
+        "derivative": 0,
+        "value": 0.05
+      },
+      {
+        "location": -0.4175170068027211,
+        "derivative": 0,
+        "value": 0.2666
+      },
+      {
+        "location": 0.1428571428571428,
+        "derivative": 0,
+        "value": 0.4
+      },
+      {
+        "location": 0.602891156462585,
+        "derivative": 0,
+        "value": 0.5666
+      },
+      {
+        "location": 0.89,
+        "derivative": 0,
+        "value": 0.578
+      },
+      {
+        "location": 1,
+        "derivative": 0,
+        "value": 0.6
+      }
+    ]
+  }
+}

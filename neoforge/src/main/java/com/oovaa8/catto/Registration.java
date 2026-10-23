@@ -5,6 +5,7 @@ import com.oovaa8.catto.misc.EverywherePlacementNeoForge;
 import com.oovaa8.catto.misc.VentFeature;
 import com.oovaa8.catto.misc.WaterFossilFeature;
 import com.oovaa8.catto.misc.WaterRockFeature;
+import com.oovaa8.catto.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -102,6 +103,33 @@ public class Registration {
 
             // If this is true, the pack is always active and cannot be disabled, should always be false for feature packs
             false,
+
+            // Priority to load resources from this pack in
+            // 'TOP' this pack will be prioritized over other packs
+            // 'BOTTOM' other packs will be prioritized over this pack
+            Pack.Position.TOP
+        );
+        if (!Services.PLATFORM.isModLoaded("c2me_opts_accel_opencl")) return;
+        event.addPackFinders(
+            // Path relative to your mods 'resources' pointing towards this pack
+            // Take note this also defines your packs id using the following format
+            // mod/<namespace>:<path>`, e.g. `mod/examplemod:data/examplemod/datapacks/experimental`
+            ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "resourcepacks/c2me_compat"),
+
+            // What kind of resources are contained within this pack
+            // 'CLIENT_RESOURCES' for packs with client assets (resource packs)
+            // 'SERVER_DATA' for packs with server data (data packs)
+            PackType.SERVER_DATA,
+
+            // Display name shown in the Experiments screen
+            Component.literal("CATTO: C2ME compatibility data"),
+
+            // In order for this pack to load and enable feature flags, this MUST be 'FEATURE',
+            // any other PackSource type is invalid here
+            PackSource.BUILT_IN,
+
+            // If this is true, the pack is always active and cannot be disabled, should always be false for feature packs
+            true,
 
             // Priority to load resources from this pack in
             // 'TOP' this pack will be prioritized over other packs

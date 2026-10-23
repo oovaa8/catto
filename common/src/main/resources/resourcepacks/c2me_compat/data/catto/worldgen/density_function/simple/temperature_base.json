@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "catto:biomes/temperature_base",
+    "points": [
+      {
+        "location": -1,
+        "derivative": 0,
+        "value": -1
+      },
+      {
+        "location": -0.45,
+        "derivative": 0,
+        "value": 0.21
+      },
+      {
+        "location": 0.55,
+        "derivative": 0,
+        "value": 0.54
+      },
+      {
+        "location": 1,
+        "derivative": 0,
+        "value": 1
+      }
+    ]
+  }
+}

@@ -10,8 +10,8 @@
           "argument1": "catto:height/steepness",
           "argument2": {
             "type": "minecraft:mul",
-            "argument1": "catto:biomes/break_up",
-            "argument2": 0.0045
+            "argument1": "catto:biomes/break_up_small",
+            "argument2": 0.025
           }
         },
         "points": [

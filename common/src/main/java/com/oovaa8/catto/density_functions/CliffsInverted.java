@@ -57,10 +57,12 @@ public record CliffsInverted(
             int i = (int) Math.floor(hro/d);
             float w = ((float)this.noise.compute(context) + 1) * 0.25f + 0.5f;
             float gap = (float)Steepness.heightNoise(i,w);
-            float l = 2*(h / (d*f*gap))-1 - 0.05f;
+            float size = d*f*gap;
+            float l = 2*(h / size)-1 - 0.05f;
             if(l<-1 || l>1) return h;
             float cn=c/t;
-            return (cn*cn+l*l-0.9) >= 0 ? h : -h;
+            float k = Math.max(1f, size / (20f / this.worldHeight));
+            return (cn*cn*k+l*l-0.9) >= 0 ? h : -h;
         }
         return h;
     }

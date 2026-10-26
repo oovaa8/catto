@@ -49,9 +49,11 @@ public class CliffsInvertedEmitter implements OpenCLCEmitter<CliffsInvertedNode>
                         "int i = (int)(floor(hro/d));\n" +
                         "float w = ((float)(" + context.getDelegateVar(noise) + ") + 1.0f) * 0.25f + 0.5f;\n" +
                         "float gap = heightOffset(i,w);\n" +
-                        "float l = 2.0f*(h/(d*f*gap)) - 1.0f - 0.05f;\n" +
+                        "float size = d*f*gap;\n" +
+                        "float l = 2.0f*(h/size) - 1.0f - 0.05f;\n" +
                         "if(l>=-1.0 && l<=1.0) {\n" +
                             "c /= t;\n" +
+                            "float k = max(1.0f, size / (" + literal(20f / (float)(node.worldHeight)) + "));\n" +
                             s + " =  (c*c + l*l) >= 0.9f ? h : -h;\n" +
                         "} else {" + s + " = h;} \n" +
                     "} else {" + s + " = h;} \n" +

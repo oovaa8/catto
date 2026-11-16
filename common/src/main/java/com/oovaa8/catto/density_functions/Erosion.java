@@ -248,15 +248,17 @@ public Erosion() {
 
         //float baseHeight = Math.clamp(initialHeight * 0.5 + 0.5,0,1);
 
+        float stren = (float)strength.compute(context);
+
         float[] erosion = ErosionFilter.ErosionFilter(
                 context.blockX(), context.blockZ(),
                 initialHeight, slope_x, slope_y, fadeTarget,
-                (float)scale.compute(context), (float)strength.compute(context), (float)ridgeRounding.compute(context), (float)creaseRounding.compute(context), (float)gain.compute(context),
+                (float)scale.compute(context), stren, (float)ridgeRounding.compute(context), (float)creaseRounding.compute(context), (float)gain.compute(context),
                 0.8f, 1.25f, 1.25f, 2.8f, 1.5f, 0.5f, assumedSlope, assumedSlope_weight, detail, lacunarity, rounding_z, rounding_w, octaves, normalization
         );
 
         return new ErosionResult(
-                initialHeight + erosion[0] + erosion[3] * 0.75f,
+                initialHeight + erosion[0] + this.octaves * stren * 0.5f,
                 erosion[4],
                 slope_x_i + erosion[1],
                 slope_y_i + erosion[2]

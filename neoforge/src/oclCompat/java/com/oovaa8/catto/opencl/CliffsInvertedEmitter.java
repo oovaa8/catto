@@ -54,7 +54,7 @@ public class CliffsInvertedEmitter implements OpenCLCEmitter<CliffsInvertedNode>
                         "if(l>=-1.0 && l<=1.0) {\n" +
                             "c /= t;\n" +
                             "float k = max(1.0f, size / (" + literal(20f / (float)(node.worldHeight)) + "));\n" +
-                            s + " =  (c*c + l*l) >= 0.9f ? h : -h;\n" +
+                            s + " =  (c*c*k + l*l) >= 0.9f ? h : -h;\n" +
                         "} else {" + s + " = h;} \n" +
                     "} else {" + s + " = h;} \n" +
                 "} else {" + s + " = h;}\n";

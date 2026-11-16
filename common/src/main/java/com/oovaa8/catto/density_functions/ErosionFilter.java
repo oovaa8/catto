@@ -20,7 +20,6 @@ public class ErosionFilter {
 
         float freq = 1.0f / (scl * cellScale);
         float slopeLength = Math.max(Erosion.length(slope_x, slope_y), 1e-10f);
-        float magnitude = 0.0f;
         float roundingMult = 1.0f;
 
         float roundingForInput = Erosion.mix(crease_rounding, ridge_rounding, Math.clamp(fadeTarget + 0.5f, 0f, 1f)) * rounding_z;
@@ -56,7 +55,6 @@ public class ErosionFilter {
             height += fadedGullies_x * strengthLocal;
             slope_x += fadedGullies_y * strengthLocal;
             slope_y += fadedGullies_z * strengthLocal;
-            magnitude += strengthLocal;
 
             fadeTarget = fadedGullies_x;
 
@@ -64,11 +62,10 @@ public class ErosionFilter {
             float newMask = Erosion.ease_out(Erosion.smooth_start(sloping * onset_y, roundingForOctaves * onset_y));
             combiMask = Erosion.pow_inv(combiMask, detail) * newMask;
 
-            if (i < 2){
-                ridgeMapFadeTarget = Erosion.mix(ridgeMapFadeTarget, gullies_x, ridgeMapCombiMask);
-                float newRidgeMapMask = Erosion.ease_out(sloping * onset_w);
-                ridgeMapCombiMask *= newRidgeMapMask;
-            }
+            ridgeMapFadeTarget = Erosion.mix(ridgeMapFadeTarget, gullies_x, ridgeMapCombiMask);
+            float newRidgeMapMask = Erosion.ease_out(sloping * onset_w);
+            ridgeMapCombiMask *= newRidgeMapMask;
+
 
             strengthLocal *= g;
             freq *= lacunarity;
@@ -81,7 +78,7 @@ public class ErosionFilter {
         float slopeDelta_x = slope_x - inputSlope_x;
         float slopeDelta_y = slope_y - inputSlope_y;
 
-        return new float[]{heightDelta, slopeDelta_x, slopeDelta_y, magnitude, ridgeMap};
+        return new float[]{heightDelta, slopeDelta_x, slopeDelta_y, 0, ridgeMap};
     }
 
     // Phacelle Noise function copyright (c) 2025 Rune Skovbo Johansen

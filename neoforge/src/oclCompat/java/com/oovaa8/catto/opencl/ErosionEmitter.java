@@ -21,6 +21,9 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
     private final Set<OpenCLCGenContext> helpersEmitted =
             Collections.newSetFromMap(new WeakHashMap<>());
 
+    private final Set<OpenCLCGenFunctionContext> resultsEmitted =
+            Collections.newSetFromMap(new WeakHashMap<>());
+
     private ErosionEmitter() {
     }
 
@@ -43,12 +46,16 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
             context.getGlobalContext().appendRaw(HELPER_FUNCTIONS);
             emitBase(context.getGlobalContext(), hCall, strengthCall, scaleCall, ridgeRoundingCall, creaseRoundingCall, gainCall, node);
         }
-        return  "float4 base = erosion_base(ctx);\n" +
-                s + " = " + switch (node.mode) {
-                    case "ridge"   -> "base.y;\n";
-                    case "slope_length" -> "base.z;\n";
-                    case "slope_z" -> "base.w;\n";
-                    default        -> "base.x;\n";};
+
+        if (INSTANCE.resultsEmitted.add(context)){
+            context.appendRaw("float4 erosion_results = erosion_base(ctx);\n");
+        }
+
+        return s + " = " + switch (node.mode) {
+                    case "ridge"   -> "erosion_results.y;\n";
+                    case "slope_length" -> "erosion_results.z;\n";
+                    case "slope_z" -> "erosion_results.w;\n";
+                    default        -> "erosion_results.x;\n";};
 
 
     }
@@ -64,6 +71,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
 
         context.appendRaw(
                     "static __attribute__((pure)) float4 erosion_base(sample_int32_ctx_t ctx) {\n" +
+                            "float stren = (float)" + strengthCall + ";\n" +
                             "float height = " + hCall + ";\n" +
                             "sample_int32_ctx_t ctx_dx = make_sample_int32_ctx(ctx.const_data, ctx.rw_data, ctx.x + 1, ctx.y, ctx.z, ctx.sample_flags);\n" +
                             "float hdx = " + hCallDx + ";\n" +
@@ -75,7 +83,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
                             "float ridgeMap = 0.0;\n" +
                             "float4 erosion = ErosionFilter(\n" +
                             "(float2)(ctx.x, ctx.z), heightAndSlope, fadeTarget,\n" +
-                            strengthCall + ", 0.5, " + literal(node.detail) + ",\n" +
+                            "stren, 0.5," + literal(node.detail) + ",\n" +
                             "(float4)(" + ridgeRoundingCall + ", " + creaseRoundingCall + ", " +
                             literal(node.rounding_z) + ", " + literal(node.rounding_w) + "),\n" +
                             "(float4)(1.25, 1.25, 2.8, 1.5),\n" +
@@ -84,7 +92,7 @@ public class ErosionEmitter implements OpenCLCEmitter<ErosionNode>{
                             scaleCall + ", " + node.octaves + ", " +
                             literal(node.lacunarity) + ", " + gainCall + ",\n" +
                             "0.8f, " + literal(node.normalization) + ", &ridgeMap);\n" +
-                            "return (float4)(height + erosion.x + erosion.w * 0.75f, ridgeMap, length((float2)(slope.x + erosion.y, slope.y + erosion.z)), slope.y + erosion.z);\n" +
+                            "return (float4)(height + erosion.x + stren * (float)" + node.octaves + " * 0.5f, ridgeMap, length((float2)(slope.x + erosion.y, slope.y + erosion.z)), slope.y + erosion.z);\n" +
                     "}\n"
         );
     }

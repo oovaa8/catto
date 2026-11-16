@@ -30,8 +30,8 @@ public record Cliffs(
     public double compute(FunctionContext context) {
         float h = (float)this.height.compute(context); // -1 to 1
         float d = (float)this.length.compute(context) / this.worldHeight; // in blocks
-        float r = d / (float) 2;
-        return Steepness.mod(h-(float)this.ocean+r,d)/r - 1;
+        float r = d / 2.0f;
+        return Steepness.mod(h-this.ocean+r,d)/r - 1.0f;
     }
 
     @Override

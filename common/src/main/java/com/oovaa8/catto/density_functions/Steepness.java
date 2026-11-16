@@ -38,11 +38,11 @@ public record Steepness(
         float f = (float)this.flatness.compute(context); // 0 to 1
         if(f <= 0) return h;
         float s = Math.max((float)this.steepness.compute(context), 0.00001f); // 0 to 1
-        float w = ((float)(this.noise.compute(context) + 1) * 0.25f + 0.5f);
+        float w = ((float)(this.noise.compute(context) + 1.0f) * 0.25f + 0.5f);
         float d = (float)this.length.compute(context) / this.worldHeight; // in blocks
-        float r = d / (float) 2;
+        float r = d / 2.0f;
 
-        float hro = h+r-(float)this.ocean;//55/2352+0.00001
+        float hro = h+r-this.ocean;//55/2352+0.00001
         int i = (int) Math.floor(hro / d); //0
 
         float gap = d * (float)heightNoise(i,w); //110/2352 * 1
@@ -77,13 +77,13 @@ public record Steepness(
     }
 
     float smooth(float d, float r, float s, float hro){
-        float ds = d*s/2;
+        float ds = d*s/2.0f;
         return smoothstep(r - ds, r+ds, Steepness.mod(hro,d));
     }
 
     float smoothstep(float a,float b,float k){
         float t = Math.clamp((k-a)/(b-a),0,1f);
-        return t*t*(3-2*t);
+        return t*t*(3.0f-2.0f*t);
     }
 
     public static float mod(float a, float b){

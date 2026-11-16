@@ -78,7 +78,6 @@ float4 ErosionFilter(
     float3 inputHeightAndSlope = heightAndSlope;
     float freq = 1.0f/(scale*cellScale);
     float slopeLength = max(length(heightAndSlope.yz), 1e-10f);
-    float magnitude = 0.0f;
     float roundingMult = 1.0f;
     float roundingForInput = mix(rounding.y, rounding.x, clamp01(fadeTarget + 0.5f)) * rounding.z;
     float combiMask = ease_out(smooth_start(slopeLength * onset.x, roundingForInput * onset.x));
@@ -93,23 +92,22 @@ float4 ErosionFilter(
         float3 gullies = (float3)(phacelle.x, phacelle.y * phacelle.zw);
         float3 fadedGullies = mix((float3)(fadeTarget, 0.0f, 0.0f), gullies * gullyWeight, combiMask);
         heightAndSlope += fadedGullies * strength;
-        magnitude += strength;
         fadeTarget = fadedGullies.x;
         float roundingForOctave = mix(rounding.y, rounding.x, clamp01(phacelle.x + 0.5f)) * roundingMult;
         float newMask = ease_out(smooth_start(sloping * onset.y, roundingForOctave * onset.y));
         combiMask = pow_inv(combiMask, detail) * newMask;
-        if(i<2){
-            ridgeMapFadeTarget = mix(ridgeMapFadeTarget, gullies.x, ridgeMapCombiMask);
-            float newRidgeMapMask = ease_out(sloping * onset.w);
-            ridgeMapCombiMask = ridgeMapCombiMask * newRidgeMapMask;
-        }
+        
+        ridgeMapFadeTarget = mix(ridgeMapFadeTarget, gullies.x, ridgeMapCombiMask);
+        float newRidgeMapMask = ease_out(sloping * onset.w);
+        ridgeMapCombiMask = ridgeMapCombiMask * newRidgeMapMask;
+        
         strength *= gain;
         freq *= lacunarity;
         roundingMult *= rounding.w;
     }
     *ridgeMap = ridgeMapFadeTarget * (1.0f-ridgeMapCombiMask);
     float3 heightAndSlopeDelta = heightAndSlope - inputHeightAndSlope;
-    return (float4)(heightAndSlopeDelta, magnitude);
+    return (float4)(heightAndSlopeDelta, 0);
 }
 """;
 }

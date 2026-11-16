@@ -1,0 +1,9 @@
+{
+  "type":  "catto:continent",
+  "noise": {
+    "type": "minecraft:noise",
+    "noise": "minecraft:gravel",
+    "xz_scale": 0.15,
+    "y_scale": 0
+  }
+}

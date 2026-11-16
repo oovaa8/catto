@@ -2,7 +2,7 @@
   "type": "minecraft:cache_2d",
   "argument": {
     "type": "catto:erosion",
-    "height": "catto:base/overworld",
+    "height": "catto:base/continent",
     "strength": "catto:height/erosion_params/strength",
     "scale": 225,
     "detail": 1.75,

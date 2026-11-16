@@ -30,8 +30,12 @@
     "erosion": 0,
     "depth": 0,
     "ridges":0,
-    "initial_density_without_jaggedness": 0,
-    "final_density": 0
+    "initial_density_without_jaggedness": {
+      "type": "minecraft:mul",
+      "argument1": 80,
+      "argument2": "catto:simple/surface"
+    },
+    "final_density": "catto:simple/surface"
   },
   "spawn_target": [
     {

@@ -42,6 +42,8 @@ public class Registration {
                     registry.register(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "x"), CoordinateX.CODEC.codec());
                     registry.register(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "y"), CoordinateY.CODEC.codec());
                     registry.register(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "z"), CoordinateZ.CODEC.codec());
+
+                    registry.register(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "continent"), Continent.CODEC.codec());
                 }
         );
     }

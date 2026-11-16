@@ -1,6 +1,6 @@
 {
   "type": "minecraft:add",
-  "argument1": "catto:base/overworld",
+  "argument1": "catto:base/continent",
   "argument2": {
     "type": "minecraft:y_clamped_gradient",
     "from_y": -320,

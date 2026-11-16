@@ -1,5 +1,6 @@
 package com.oovaa8.catto.opencl;
 
+import com.ishland.c2me.opts.dfc.common.gen.meta.ValuesMethodDefF64;
 import com.ishland.c2me.opts.dfc.common.gen.opencl.OpenCLCEmitter;
 import com.ishland.c2me.opts.dfc.common.gen.opencl.OpenCLCGenContext;
 import com.ishland.c2me.opts.dfc.common.gen.opencl.OpenCLCGenFunctionContext;
@@ -23,6 +24,8 @@ public class ContinentEmitter implements OpenCLCEmitter<ContinentNode> {
             context.getGlobalContext().appendRaw(ContinentHelpers.main);
         }
 
-        return s  + " = get_continent_height(ctx.x, ctx.z, " + (int)(continentNode.seed) + ");\n";
+        ValuesMethodDefF64 noise = context.newVarF64(continentNode.noise);
+
+        return s  + " = get_continent_height(ctx.x, ctx.z, " + context.getDelegateVar(noise) + ", "+ (int)(continentNode.seed) + ");\n";
     }
 }
